@@ -40,16 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin()
-                .permitAll()
-                .and()
-                .logout().permitAll()
-                .and()
-                .httpBasic()
-                .and()
+                .authorizeRequests().and()
                 .csrf().disable();
     }
 }

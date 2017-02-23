@@ -6,7 +6,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * Created by tanjian on 16/9/14.
  *
  */
-public class ZJSYWebInitinalizer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class TGAdminWebInitinalizer extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[]{RootConfig.class};
     }

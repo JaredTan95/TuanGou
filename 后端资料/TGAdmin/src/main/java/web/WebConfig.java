@@ -28,7 +28,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public FreeMarkerConfigurer freeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
-        freeMarkerConfigurer.setTemplateLoaderPath("/resources/views/freemakerTepl");
+        freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/resources/views/freemakerTepl");
         freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         return freeMarkerConfigurer;
     }
@@ -63,9 +63,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource ds = new ComboPooledDataSource();
         ds.setDriverClass("com.mysql.jdbc.Driver");
-        ds.setJdbcUrl("jdbc:mysql://123.207.83.185:3306/RBACDemo");
-        ds.setUser("root");
-        ds.setPassword("jR7DP1IE983r");
+        ds.setJdbcUrl("jdbc:mysql://115.159.216.56 :3306/TGAdmin");
+        ds.setUser("dev");
+        ds.setPassword("123456");
         ds.setInitialPoolSize(5);
         ds.setMaxPoolSize(10);
         ds.setMinPoolSize(3);
@@ -78,6 +78,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new JdbcTemplate(dataSource);
     }
 
+
+    /*Json 化*/
     @Bean
     public MappingJackson2JsonView mappingJackson2JsonView() {
         MappingJackson2JsonView mappingJackson2JsonView = new MappingJackson2JsonView();
