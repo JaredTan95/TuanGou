@@ -7,6 +7,7 @@
           <element id="module-output" name="TGAdmin" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.0.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.9" />
