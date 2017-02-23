@@ -10,25 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <script src="assets/js/echarts.min.js"></script>
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/app.css">
+    <script src="/resources/views/freemakerTepl/assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="widgets">
-    <script src="assets/js/theme.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
-                <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+                <a href="javascript:;"><img src="/resources/views/freemakerTepl/assets/img/logo.png" alt=""></a>
             </div>
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
@@ -64,7 +64,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="assets/img/user04.png" alt="">
+                                            <img src="/resources/views/freemakerTepl/assets/img/user04.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             3小时前
@@ -83,7 +83,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="assets/img/user02.png" alt="">
+                                            <img src="/resources/views/freemakerTepl/assets/img/user02.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             5天前
@@ -189,7 +189,7 @@
             <div class="tpl-sidebar-user-panel">
                 <div class="tpl-user-panel-slide-toggleable">
                     <div class="tpl-user-panel-profile-picture">
-                        <img src="assets/img/user04.png" alt="">
+                        <img src="/resources/views/freemakerTepl/assets/img/user04.png" alt="">
                     </div>
                     <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -342,7 +342,7 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img src="assets/img/a5.png" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
     <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
@@ -447,7 +447,7 @@
                                         <div class="am-u-sm-9">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img src="assets/img/a5.png" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm">
     <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
@@ -552,7 +552,7 @@
                                         <div class="am-u-sm-12 am-margin-top-xs">
                                             <div class="am-form-group am-form-file">
                                                 <div class="tpl-form-file-img">
-                                                    <img src="assets/img/a5.png" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/a5.png" alt="">
                                                 </div>
                                                 <button type="button" class="am-btn am-btn-danger am-btn-sm ">
     <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
@@ -609,10 +609,10 @@
         </div>
     </div>
     </div>
-    <script src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/amazeui.datatables.min.js"></script>
-    <script src="assets/js/dataTables.responsive.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
 
 </body>
 

@@ -203,28 +203,28 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
                 <li class="sidebar-nav-link">
-                    <a href="index.html" class="active">
+                    <a href="/index" class="active">
                         <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="tables.ftl">
+                    <a href="/tables">
                         <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="calendar.ftl">
+                    <a href="/calendar">
                         <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="form.ftl">
+                    <a href="/form">
                         <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
 
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="chart.ftl">
+                    <a href="/chart">
                         <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
 
                     </a>
@@ -238,13 +238,13 @@
                     </a>
                     <ul class="sidebar-nav sidebar-nav-sub">
                         <li class="sidebar-nav-link">
-                            <a href="table-list.ftl">
+                            <a href="/table-list">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
                             </a>
                         </li>
 
                         <li class="sidebar-nav-link">
-                            <a href="table-list-img.ftl">
+                            <a href="/table-list-img">
                                 <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
                             </a>
                         </li>

@@ -10,24 +10,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/app.css">
+    <script src="/resources/views/freemakerTepl/assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="widgets">
-    <script src="assets/js/theme.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 头部 -->
         <header>
             <!-- logo -->
             <div class="am-fl tpl-header-logo">
-                <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+                <a href="javascript:;"><img src="/resources/views/freemakerTepl/assets/img/logo.png" alt=""></a>
             </div>
             <!-- 右侧内容 -->
             <div class="tpl-header-fluid">
@@ -63,7 +63,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="assets/img/user04.png" alt="">
+                                            <img src="/resources/views/freemakerTepl/assets/img/user04.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             3小时前
@@ -82,7 +82,7 @@
                                 <li class="tpl-dropdown-menu-messages">
                                     <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                         <div class="menu-messages-ico">
-                                            <img src="assets/img/user02.png" alt="">
+                                            <img src="/resources/views/freemakerTepl/assets/img/user02.png" alt="">
                                         </div>
                                         <div class="menu-messages-time">
                                             5天前
@@ -188,7 +188,7 @@
             <div class="tpl-sidebar-user-panel">
                 <div class="tpl-user-panel-slide-toggleable">
                     <div class="tpl-user-panel-profile-picture">
-                        <img src="assets/img/user04.png" alt="">
+                        <img src="/resources/views/freemakerTepl/assets/img/user04.png" alt="">
                     </div>
                     <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -333,7 +333,7 @@
                                         <tbody>
                                             <tr class="gradeX">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">Amaze UI 模式窗口</td>
                                                 <td class="am-text-middle">张鹏飞</td>
@@ -351,7 +351,7 @@
                                             </tr>
                                             <tr class="even gradeC">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">有适配微信小程序的计划吗</td>
                                                 <td class="am-text-middle">天纵之人</td>
@@ -369,7 +369,7 @@
                                             </tr>
                                             <tr class="gradeX">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">请问有没有amazeui 分享插件</td>
                                                 <td class="am-text-middle">王宽师</td>
@@ -387,7 +387,7 @@
                                             </tr>
                                             <tr class="even gradeC">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">关于input输入框的问题</td>
                                                 <td class="am-text-middle">着迷</td>
@@ -405,7 +405,7 @@
                                             </tr>
                                             <tr class="even gradeC">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">有没有发现官网上的下载包不好用</td>
                                                 <td class="am-text-middle">醉里挑灯看键</td>
@@ -424,7 +424,7 @@
 
                                             <tr class="even gradeC">
                                                 <td>
-                                                    <img src="assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                                    <img src="/resources/views/freemakerTepl/assets/img/k.jpg" class="tpl-table-line-img" alt="">
                                                 </td>
                                                 <td class="am-text-middle">我建议WEB版本文件引入问题</td>
                                                 <td class="am-text-middle">罢了</td>
@@ -466,8 +466,8 @@
         </div>
     </div>
     </div>
-    <script src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
 
 </body>
 
