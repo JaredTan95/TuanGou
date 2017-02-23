@@ -17,6 +17,10 @@ public class HomeController {
 
     @RequestMapping(value = "",method = GET)
     public String index(){
-       return "index";
+        return "index";
+    }
+    @RequestMapping(value = "/login",method = GET)
+    public String login(){
+        return "login";
     }
 }
