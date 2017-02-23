@@ -251,7 +251,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="sign-up.ftl">
+                    <a href="/sign-up">
                         <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
                         <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
                     </a>
@@ -262,7 +262,7 @@
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="404.ftl">
+                    <a href="/404">
                         <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
                     </a>
                 </li>

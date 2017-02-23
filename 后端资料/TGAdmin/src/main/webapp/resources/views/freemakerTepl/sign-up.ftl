@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/app.css">
+    <script src="/resources/views/freemakerTepl/assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="login">
-    <script src="assets/js/theme.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/theme.js"></script>
     <div class="am-g tpl-g">
         <!-- 风格切换 -->
         <div class="tpl-skiner">
@@ -86,8 +86,8 @@
             </div>
         </div>
     </div>
-    <script src="assets/js/amazeui.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
+    <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
 
 </body>
 

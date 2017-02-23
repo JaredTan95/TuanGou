@@ -15,12 +15,24 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping(value = "")
 public class HomeController {
 
-    @RequestMapping(value = "",method = GET)
-    public String index(){
+    @RequestMapping(value = "", method = GET)
+    public String index() {
         return "index";
     }
-    @RequestMapping(value = "/login",method = GET)
-    public String login(){
+
+    @RequestMapping(value = "/login", method = GET)
+    public String login() {
         return "login";
     }
+
+    @RequestMapping(value = "/sign-up", method = GET)
+    public String signUp() {
+        return "sign-up";
+    }
+
+    @RequestMapping(value = "/404", method = GET)
+    public String err404() {
+        return "404";
+    }
+
 }
