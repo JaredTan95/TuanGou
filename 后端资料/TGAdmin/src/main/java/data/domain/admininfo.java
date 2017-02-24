@@ -14,6 +14,14 @@ public class admininfo {
     public admininfo() {
     }
 
+    public admininfo(String adminId, String adminAccount, String adminPwd, String adminRegDate, String adminLastLoginDate) {
+        this.adminId = adminId;
+        this.adminAccount = adminAccount;
+        this.adminPwd = adminPwd;
+        this.adminRegDate = adminRegDate;
+        this.adminLastLoginDate = adminLastLoginDate;
+    }
+
     public String getAdminId() {
         return adminId;
     }
