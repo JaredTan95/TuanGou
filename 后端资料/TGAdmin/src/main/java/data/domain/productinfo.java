@@ -8,7 +8,7 @@ public class productinfo {
     private String pro_cateId;
     private String sellerId;
     private String cateId;
-    private String ProductID;
+    private String ProductId;
     private float Startprice;
     private String productionDscp;
     private double SalePrice;
@@ -18,7 +18,24 @@ public class productinfo {
     private String productPic;
     private  double productStatus;
 
-    public productinfo() {
+    public productinfo(String pro_cateId, String cateId, String productId, float startprice, String productionDscp, double salePrice, double adCount, String publishDate, int sellCount, String productPic, double productStatus) {
+    }
+
+    public productinfo(String pro_cateId, String sellerId, String cateId, String productId, float startprice,
+                       String productionDscp, double salePrice, double adCount, String publishDate, int sellCount,
+                       String productPic, double productStatus) {
+        this.pro_cateId = pro_cateId;
+        this.sellerId = sellerId;
+        this.cateId = cateId;
+        ProductId = productId;
+        Startprice = startprice;
+        this.productionDscp = productionDscp;
+        SalePrice = salePrice;
+        AdCount = adCount;
+        this.publishDate = publishDate;
+        this.sellCount = sellCount;
+        this.productPic = productPic;
+        this.productStatus = productStatus;
     }
 
     public String getPro_cateId() {
@@ -45,12 +62,12 @@ public class productinfo {
         this.cateId = cateId;
     }
 
-    public String getProductID() {
-        return ProductID;
+    public String getProductId() {
+        return ProductId;
     }
 
-    public void setProductID(String productID) {
-        ProductID = productID;
+    public void setProductId(String productId) {
+        ProductId = productId;
     }
 
     public float getStartprice() {

@@ -15,7 +15,7 @@ public interface admininfoRepository {
     boolean save(admininfo admin);
 
     /*更新某个管理员密码信息*/
-    boolean updatePasswd(String id,String pwd);
+    boolean updatePasswd(admininfo admin);
 
     /*更新某个管理员密码信息*/
     boolean updateLastLoginDate(admininfo admin);
@@ -23,7 +23,7 @@ public interface admininfoRepository {
     /*
     **通过指定信息，查询某个用户信息
     **/
-    admininfo  findOne(String id);
+    admininfo  findOne(admininfo admin);
 
     /*
     查询所有管理员信息
@@ -31,5 +31,5 @@ public interface admininfoRepository {
     List<Map<String, Object>> findAll();
 
     /*逐个删除管理员信息*/
-    boolean delete(String id);
+    boolean delete(admininfo admin);
 }
