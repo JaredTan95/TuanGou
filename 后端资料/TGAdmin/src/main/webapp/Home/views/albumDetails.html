@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .modal-backdrop{
+            position: relative;!important;
+            width: 0;!important;
+            height:0;!important;
+        }
+        .modal-dialog{
+            margin-top: 50px;!important;
+        }
+    </style>
+</head>
+<body class="view">
+<main class="playlist">
+    <div class="row container">
+        <div class="col-sm-3 offset-sm-3 col-md-3 col-lg-3 wow slideInLeft">
+            <div class="view overlay hm-white-light z-depth-1-half">
+                <img id="albumCover" src="" class="img-fluid " alt="">
+                <div class="mask waves-effect waves-light">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-5 wow slideInRight">
+            <div class="card">
+                <div class="card-header stylish-color">
+                    专辑介绍
+                </div>
+                <div class="card-block">
+                    <ul>
+                        <li>专辑名称：<a href="#!" id="albumTitle"></a></li>
+                        <li>歌手：<a href="#!"></a></li>
+                        <li>发行时间：<span id="albumPutime"></span></li>
+                        <li>专辑描述：<p id="albumDescp"></p></li>
+                    </ul>
+                    <button type="button" class="btn btn-primary btn-sm mask waves-effect waves-light"><i class="fa fa-play-circle-o left"></i>播放全部</button>
+                    <button type="button" class="btn btn-pink btn-sm mask waves-effect waves-light"><i class="fa  fa-heart-o left"></i>收藏</button>
+                </div>
+            </div>
+        </div>
+
+        <!--/.Panel-->
+    </div>
+    <hr>
+    <div class="row ">
+        <div class="col-sm-8 col-xs-12 offset-sm-2">
+            <ul class="list-group" id="albumMusicLists">
+                <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-1 col-xs-1">
+                        序号
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        播放
+                    </div>
+                    <div class="col-sm-5 col-xs-4">
+                        <p>歌曲标题</p>
+                    </div>
+                     <div class="col-sm-3 col-xs-3">
+                         歌手
+                     </div>
+                    <div class="col-sm-2 col-xs-2">
+                        专辑
+                    </div>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fadeIn" id="mv-Modal" tabindex="188" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content transparent">
+                <!--Header-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">MV</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body ">
+                    <div class="row">
+                        <div class="col-sm-12 embed-responsive embed-responsive-16by9">
+                            <video id="modal-mv" class="embed-responsive-item" controls="" name="media" poster="">
+                                <source src="" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+</main>
+<!-- /Start your project here-->
+<script>
+    $(document).ready(function(){
+        $(function () {
+            var albumId=$.tjAppJs.getAlbumId();
+            $.post("/getAlbumDetl",{id:albumId},function (data) {
+                var albumDetal=data.albumDetl;
+                var musicLists=data.musicLists;
+                console.log(data);
+                $('#albumCover').attr("src","http://"+albumDetal.s_aCoverUrl);
+                $('#albumCover').attr("alt",albumDetal.s_atitle);
+                $('#albumCover').attr("albumPubTime",albumDetal.s_apubTime);
+                $('#albumTitle').html(albumDetal.s_atitle);
+                $('#albumDescp').html(albumDetal.s_adescp);
+                data2Elements(musicLists);
+            });
+        });
+
+        function data2Elements(datalists) {
+            for(var i=0;i<datalists.length;i++){
+                var icon="<div class='col-sm-1 col-xs-1 col-md-1'><a href='#!'><i class='fa fa-play-circle play-music' data-musicid='"+datalists[i].s_songid+"' data-stitle='"+datalists[i].s_title+"' data-sul='"+datalists[i].s_surl+"'  data-sCover='"+datalists[i].s_scover+"' aria-hidden='true'></i></a></div>";
+                var mvBtn="<div class='col-sm-3 col-xs-3 col-md-3'><a href='#!' >"+datalists[i].s_title+"</a><a href='#!' data-toggle='modal' data-target='#mv-Modal'><i class='fa fa-film play-mv'  data-mvUrl='"+datalists[i].s_smvurl+"' aria-hidden='true'></i></a></div>";
+                var singer="<div class='col-sm-3 col-xs-3 col-md-3'> <a href='#!'>"+datalists[i].s_sname+"</a></div>";
+                var albumTitle="<div class='col-sm-2 col-xs-2 col-md-2'><a href='#!'>"+datalists[i].s_atitle+"</a></div>";
+                var li="<li class='list-group-item'><div class='row'><div class='col-sm-1 col-xs-1'>"+(i+1)+"</div>"+icon+mvBtn+singer+albumTitle+"</div></li>";
+                $('#albumMusicLists').append(li);
+            }
+        }
+        $("#albumMusicLists").on('click',".play-music", function () {
+            var musicId=$(this).attr("data-musicid");
+            var musicTitle=$(this).attr("data-stitle");
+            var musicUrl=$(this).attr("data-sul");
+            var musicCover=$(this).attr("data-sCover");
+            var mvUrl=$(this).attr("data-mvUrl");
+
+            $('#playerBarMusicCover').attr("src","http://"+musicCover);
+            $('.audioPlayer').attr("data-currtPlaying",musicId);
+            $.SpittrJqplayer.itemPlay({title:musicTitle,artist:null,mp3:"http://"+musicUrl,poster:"http://"+musicCover});
+            $.tjAppJs.checkIsFav(musicId);
+            $.post("/addUpVisiNum", {songid: musicId}, function (data) {
+                console.log("AlbumDetails_addUpVisiNum:" + data);
+            });
+        });
+
+        $("#albumMusicLists").on('click',".play-mv", function () {
+            var mvUrl=$(this).attr("data-mvUrl");
+            $('#modal-mv').attr("src","http://"+mvUrl);
+        });
+
+        $('.modal-backdrop').attr("position","relative");
+    });
+</script>
+</body>
+</html>

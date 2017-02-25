@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Spittr-Production Music</title>
+    <link rel="icon" type="image/png" href="/Home/assets/img/logo/Spittr_logo.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/Home/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/Home/assets/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/Home/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!--Navbar-->
+    <nav class="navbar navbar-dark">
+        <!-- Collapse button-->
+        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="container">
+            <!--Collapse content-->
+            <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                <!--Navbar Brand-->
+                <a class="navbar-brand" href="/"
+                   target="_blank">Spittr</a>
+                <!--Links-->
+                <ul class="nav navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#!" id="homePage">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!" id="mymusic">我的音乐</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!">排行榜</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#!">最新上架</a>
+                    </li>
+                </ul>
+                <!--Search form-->
+                <form class="form-inline" onsubmit="$.tjAppJs.search();return false;">
+                    <input class="form-control" id="search" type="text" placeholder="搜索">
+                </form>
+            </div>
+            <!--/.Collapse content-->
+        </div>
+    </nav>
+    <!--/.Navbar-->
+</header>
+<main>
+    <div id="bodyContent" data-albumId="" data-playingId="" data-q=""></div>
+</main>
+
+<!--<iframe id="iframeContent" data-albumId="" name="iframeContent" width="100%" height="100%" frameborder="no"></iframe>-->
+<!--Footer-->
+<footer class="page-footer center-on-small-only">
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2016- Copyright: <a href="http://www.tanjianff.cn" target="_blank">Spittr | TanJian</a>. All Rights
+            Reserved.
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+
+    <!--音乐播放器-->
+    <div class="audioPlayerPanel">
+        <!--start audio-->
+        <div class="container-fluid">
+            <div class="audioPlayer" data-currtPlaying="">
+                <div class="row">
+                    <div class="col-sm-2 offset-sm-1 controls">
+                        <div class="play-controls">
+                            <a href="javascript:;" class="icon-previous jp-previous" title="previous"></a>
+                            <a href="javascript:;" class="icon-play jp-play" title="play"></a>
+                            <a href="javascript:;" class="icon-pause jp-pause" title="pause"></a>
+                            <a href="javascript:;" class="icon-next jp-next" title="next"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-1 musicPic">
+                        <img id="playerBarMusicCover" src="/Home/assets/img/icons/7978056371311178.jpeg"
+                             class="pull-xs-left" alt="歌曲封面"/>
+                    </div>
+                    <div class="col-sm-5 musicInfo">
+                        <div class="info">
+                            <div class="center">
+                                <div class="jp-playlist">
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="progress jp-seek-bar">
+                                    <span class="jp-play-bar" style="width: 90%"></span>
+                                </div>
+                            </div>
+
+                            <div class="right">
+                                <a href="javascript:;" class="icon-repeat"></a>
+                                <a href="javascript:;" class="icon-share"></a>
+                            </div>
+                            <span class="current jp-current-time">00:00</span>
+                            <span class="current jp-duration">00:00</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 musicOpr">
+                        <div class="volume-level jp-volume-bar">
+                            <span class="jp-volume-bar-value" style="width: 80%"></span>
+                       <!--     <a href="javascript:;" class="icon-volume-up jp-volume-max" title="max volume"></a>-->
+                            <a href="javascript:;" class="icon-volume-down jp-mute" title="mute"></a>
+                        </div>
+                        <div class="jp-playlist" id="playLists-oper">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="jquery_jplayer" class="jp-jplayer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--音乐播放器 end-->
+</footer>
+<!--/.Footer-->
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/Home/assets/js/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/Home/assets/js/tether.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/Home/assets/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/Home/assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="/Home/assets/js/jplayer.playlist.min.js"></script>
+<script type="text/javascript" src="/Home/assets/js/jquery.jplayer.min.js"></script>
+<!--load my app.js-->
+<script type="text/javascript" src="/Home/assets/js/sha256.js"></script>
+<script type="text/javascript" src="/Home/assets/js/app.js"></script>
+<script>
+    console.log("=============Spittr==By==谭建===============");
+    console.log("^_^,哈哈，欢迎访问Spittr音乐网站。制作者：谭建");
+    console.log("注：严禁将本网站所有内容用于商业用途，否则后果自负！");
+    console.log("=============Spittr==By==谭建===============");
+    console.log("=============目前状态：DeBug...===============");
+</script>
+</body>
+</html>

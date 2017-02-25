@@ -1,0 +1,366 @@
+body {
+    background: #4B515D;
+    overflow-y: hidden;
+}
+
+footer.page-footer {
+    padding-top: 4px;
+}
+
+html,
+body,
+.view {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+main .container_body {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+body .card{
+    background-color: transparent;!important
+}
+/* Navigation*/
+main .card {
+    margin-bottom: 2rem;
+}
+
+main .card .card-block, main .container_body {
+    background-color: #4B515D;
+    color: white;
+}
+
+header .navbar {
+    background-color: transparent;
+}
+
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.top-nav-collapse {
+    background-color: #1C2331;
+}
+
+.list-group-item {
+    border: 0 solid transparent !important;
+    cursor: pointer;
+}
+
+footer.page-footer {
+    background-color: #1C2331;
+    margin-top: -1px;
+    margin-bottom: 80px;
+}
+
+footer .audioPlayerPanel {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    background-color: #263238;
+    width: 100%;
+    height: 70px;
+    opacity: 0.9;
+}
+
+footer .audioPlayerPanel i:hover {
+    cursor: pointer;
+}
+
+TODO：添加其他终端平台的css
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: rgba(24, 25, 29, 0.65);
+    }
+}
+
+/*Call to action*/
+
+.flex-center {
+    color: #fff;
+}
+
+.view {
+    /*background: url("http://mdbootstrap.com/images/regular/city/img%20(6).jpg")no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+    .read-more {
+        text-align: center;
+    }
+}
+
+* {
+    color: #FFFFFF;
+}
+
+/*==================home html css==========================*/
+.blankPanel {
+    width: 100%;
+    height: 180px;
+    background-color: white;
+}
+/*==================home html css end==========================*/
+
+/*==================login html css==========================*/
+.login-form {
+    margin: 5rem auto;
+}
+
+.login-form * {
+    color: #09352f;
+}
+/*=================login html css end===========================*/
+
+/*=================music-detail css    ============================*/
+.music-detail{
+    margin: 5rem auto;
+}
+/*=================music-detail css end============================*/
+
+/*=================playlist html css===========================*/
+.playlist {
+    margin: 5rem 0 6rem 0;
+}
+
+.playlist .list-group * {
+    color: #3E4551;
+}
+/*==================playlist html css end==========================*/
+
+/*==================personal html css=========================*/
+.personalInfo {
+    margin: 5rem 0 6rem 0;
+}
+
+.personalInfo .musiclists span {
+    color: #3E4551;
+}
+/*====================personal html css end========================*/
+
+
+/*=======search html css===========*/
+main .searchReults{
+    margin: 5rem auto;
+    text-align: center;
+}
+main .searchReults a{
+    color: #ddd;
+}
+main .searchReults a:hover{
+    color: #ccc;;
+}
+.nav-tabs .nav-link.active{
+    color: #000;
+    background-color:#ddd;!important;
+    border-color: rgba(255,255,255,.15) rgba(255,255,255,.15) rgba(255,255,255,.15);!important;
+}
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: rgba(255,255,255,.15) rgba(255,255,255,.15) rgba(255,255,255,.15);!important;
+}
+/*=======search html css end=========*/
+
+/*=====================music player bar css=======================*/
+footer .audioPlayer .musicPic {
+    overflow: hidden;
+    height: 70px;
+    float: left;
+}
+
+footer .audioPlayer .musicPic img {
+    border-radius: 5px;
+    width:100%;
+    height:auto;
+    margin: 5px  auto;
+   /* max-width: 70px;
+    max-height: 70px;
+    border: 1px solid #fdf7f7;*/
+}
+
+footer .audioPlayer {
+    display: block;
+}
+footer .audioPlayer .controls .play-controls{
+    margin-top: 18px;
+}
+footer .audioPlayer .controls .play-controls a {
+    display: inline-block;
+    width: 35px;
+    height: 40px;
+}
+
+footer .audioPlayer .musicOpr {
+    margin-top: 40px;
+    height: 40px;
+}
+
+footer .audioPlayer .musicOpr .volume-level {
+    background: rgba(225, 225, 225, 0.3);
+}
+
+footer .audioPlayer .volume-level span {
+    /*height: 2px;*/
+}
+
+footer .audioPlayer .volume-level span:after {
+    right: -11px;
+    top: -8px;
+    width: 22px;
+    height: 22px;
+    background-image: url("/Home/assets/img/audioPlayer/V5i67V2.png");
+}
+
+footer .audioPlayer .volume-level a {
+    position: absolute;
+    right: 40px;
+    top: -8px;
+    width: 22px;
+}
+
+footer .audioPlayer .volume-level a.icon-volume-down {
+     right: auto;
+     left: -15px;
+}
+
+footer .audioPlayer .info {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+footer .audioPlayer .info .jp-playlist li {
+    /*display: none;*/
+}
+
+footer .audioPlayer .info .jp-playlist li a {
+    text-decoration: none;
+    color: #fff;
+    color: rgba(225, 225, 225, 0.4);
+}
+
+footer .audioPlayer .info .jp-playlist li a span {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+footer .audioPlayer .info .jp-playlist li.jp-playlist-current {
+    display: block;
+}
+
+footer .audioPlayer .info .jp-playlist li .jp-free-media, .audioPlayer .info .jp-playlist li .jp-playlist-item-remove {
+    display: none;
+}
+
+footer .audioPlayer .info .right {
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+footer .audioPlayer .info  .current {
+    color: rgba(225, 225, 225, 0.4);
+    position: relative;
+    left: 5px;
+    bottom: 5px;
+}
+
+footer .audioPlayer .info [class^="icon-"] {
+    margin: 0 0 10px;
+}
+
+footer .audioPlayer .info .center {
+    padding: 8px 0 0 0;
+}
+
+footer .audioPlayer .progress {
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: -10px 0 5px 0;
+    height: 5px;
+    display: block;
+    background: rgba(225, 225, 225, 0.3);
+    cursor: pointer;
+}
+
+footer .audioPlayer .volume-level {
+    width: 60%;
+    height: 5px;
+    display: block;
+    background: #000;
+    cursor: pointer;
+}
+
+footer .audioPlayer .progress span, .audioPlayer .volume-level span {
+    position: relative;
+    display: block;
+    background: #ed553b;
+    width: 0%;
+    height: 5px;
+}
+
+footer .audioPlayer .progress span:after, .audioPlayer .volume-level span:after {
+    position: absolute;
+    right: -5px;
+    top: -6px;
+    content: "";
+    width: 10px;
+    height: 20px;
+    background: url("") no-repeat center;
+}
+
+[class^="icon-"] {
+    width: 18px;
+    height: 18px;
+    background: url("/Home/assets/img/audioPlayer/E09T8tf.png") no-repeat center;
+    display: inline-block;
+}
+
+footer .audioPlayer .icon-heart {
+    background-image: url("/Home/assets/img/audioPlayer/E09T8tf.png");
+}
+
+footer .audioPlayer .icon-repeat {
+    background-image: url("/Home/assets/img/audioPlayer/338F8MX.png");
+}
+
+footer .audioPlayer .icon-share {
+    background-image: url("/Home/assets/img/audioPlayer/PGIC6ME.png");
+}
+
+footer .audioPlayer .icon-previous {
+    background-image: url("/Home/assets/img/audioPlayer/ic_skip_previous_grey600_24dp.png");
+
+}
+
+footer .audioPlayer .icon-play {
+    background-image: url("/Home/assets/img/audioPlayer/ic_play_arrow_grey600_24dp.png");
+}
+
+footer .audioPlayer .icon-pause {
+    background-image: url("/Home/assets/img/audioPlayer/ic_pause_grey600_24dp.png");
+}
+
+footer .audioPlayer .icon-next {
+    background-image: url("/Home/assets/img/audioPlayer/ic_skip_next_grey600_24dp.png");
+}
+
+footer .audioPlayer .icon-volume-up {
+    background-image: url("/Home/assets/img/audioPlayer/ic_volume_up_grey600_18dp.png");
+}
+
+footer .audioPlayer .icon-volume-down {
+    background-image: url("/Home/assets/img/audioPlayer/ic_volume_mute_grey600_18dp.png");
+}
+/*=====================music player bar css end=======================*/

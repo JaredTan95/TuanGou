@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<div class="container transparent searchReults">
+    <ul class="nav nav-tabs tabs-2 special-color" id="resultsTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#songlist" role="tab" aria-controls="songlist">单曲</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#albumList" role="tab" aria-controls="albumList">专辑</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#singerList" role="tab" aria-controls="singerList">歌手</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#userList" role="tab" aria-controls="userList">用户</a>
+        </li>
+    </ul>
+    <div class="tab-content transparent">
+        <div class="tab-pane fade in active" id="songlist" role="tabpanel">
+            <ul class="list-group">
+                <li class="list-group-item transparent">
+                    <div class="row">
+                        <div class="col-sm-1 col-xs-1 col-md-1">
+                            序号
+                        </div>
+                        <div class="col-sm-1 col-xs-1 col-md-1">
+                            播放
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            歌曲标题
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            歌手
+                        </div>
+                        <div class="col-sm-3 col-xs-3 col-md-3">
+                            所属专辑
+                        </div>
+                        <div class="col-sm-1 col-xs-1 col-md-1">
+                            点击
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="albumList" role="tabpanel">
+            <br/>
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="singerList" role="tabpanel">
+            <br/>
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="tab-pane fade" id="userList" role="tabpanel">
+            <div class="row"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $.get("/search?q=" + $.tjAppJs.getSearchQ(), function (data) {
+            console.log("搜索到的数据：" + data);
+            data2Elements4Music(data.songLists);
+            data2Elements4Albums(data.albumLists);
+            data2Elements4Singer(data.singerLists);
+            data2Elements4Users(data.userLists);
+        });
+        $('#resultsTab li a:first').tab('show');
+        function data2Elements4Music(datalists) {
+            if(datalists==''){
+                $('#songlist ul').append("<li>未找到匹配的单曲</li>");
+            }else {
+                for (var i = 0; i < datalists.length; i++) {
+                    var vis="<div class='col-sm-1 col-xs-1 col-md-1'><a href='#!'>" + datalists[i].s_visitedTotal + "</a></div>";
+                    var belongtoAlbum="<div class='col-sm-3 col-xs-3 col-md-3'><a href='#!'>" + "null"+ "</a></div>";
+                    var icon = "<div class='col-sm-1 col-xs-1 col-md-1'><a href='#!'><i class='fa fa-play-circle play-music' data-musicid='" + datalists[i].s_songid + "' data-stitle='" + datalists[i].s_title + "' data-sul='" + datalists[i].s_surl + "'  data-sCover='" + datalists[i].s_scover + "' aria-hidden='true'></i></a></div>";
+                    var mvBtn = "<div class='col-sm-1 col-xs-1 col-md-1'><a href='#!' data-toggle='modal' data-target='#mv-Modal'><i class='fa fa-film play-mv'  data-mvUrl='" + datalists[i].s_smvurl + "' aria-hidden='true'></i></a></div>";
+                    var singer = "<div class='col-sm-3 col-xs-3 col-md-3'><a href='#!'>" + datalists[i].s_singerid + "</a></div>";
+                    var songTitle = "<div class='col-sm-2 col-xs-2 col-md-2'><a href='#!'>" + datalists[i].s_title + "</a></div>";
+                    var li = "<li class='list-group-item transparent'><div class='row'><div class='col-sm-1 col-xs-1'>" + (i + 1) + "</div>" + icon +songTitle+mvBtn + singer+belongtoAlbum +vis+ "</div></li>";
+                    $('#songlist ul').append(li);
+                }
+            }
+        }
+
+        function data2Elements4Albums(datalists){
+            if(datalists==''){
+                $('#albumList .row').append("<p>未找到匹配的专辑</p>");
+            }else {
+                for (var i = 0; i < datalists.length; i++) {
+                    var imgdiv = "<div class='view overlay hm-white-slight'>" +
+                        "<img src='http://" + datalists[i].s_aCoverUrl + "' class='img-fluid' alt='" + datalists[i].s_atitle + "'>" +
+                        "<a href='#!'><div class='mask waves-effect waves-light'></div></a></div>";
+                    var content = "<div class='card-block'><h5 class='card-title'>" + datalists[i].s_atitle + "</h5>" +
+                        "<div class='read-more'><a href='#!' class='btn btn-primary waves-effect waves-light detailsBtn' data-albumId='" + datalists[i].s_aid + "'>开始了解</a></div></div>";
+                    var div = "<div class='col-md-2 col-xs-2 col-sm-2'><div class='card'>" + imgdiv + content + "</div></div>";
+                    $('#albumList .row').append(div);
+                }
+            }
+        }
+        function data2Elements4Singer(datalists) {
+            if(datalists==''){
+                $('#singerList .row').append("<p>未找到匹配的歌手</p>");
+            }else {
+                for (var i = 0; i < datalists.length; i++) {
+                    var imgdiv = "<div class='view overlay hm-white-slight'>" +
+                        "<img src='http://" + datalists[i].s_spic + "' class='img-fluid' alt='" + datalists[i].s_sname + "'>" +
+                        "<a href='#!'><div class='mask waves-effect waves-light'></div></a></div>";
+                    var content = "<div class='card-block'><h5 class='card-title'>" + datalists[i].s_sname + "</h5>" +
+                        "<div class='read-more'><a href='#!' class='btn btn-primary waves-effect waves-light detailsBtn' data-singerId='" + datalists[i].s_singerid + "'>开始了解</a></div></div>";
+                    var div = "<div class='col-md-2 col-xs-2 col-sm-2'><div class='card'>" + imgdiv + content + "</div></div>";
+                    $('#singerList .row').append(div);
+                }
+            }
+        }
+        function data2Elements4Users(datalists) {
+            if(datalists==''){
+                $('#userList .row').append("<p>未找到匹配的用户</p>");
+            }else {
+                for (var i = 0; i < datalists.length; i++) {
+                    var imgdiv = "<div class='view overlay hm-white-slight'>" +
+                        "<img src='http://"  + "' class='img-fluid' alt='" + datalists[i].s_sname + "'>" +
+                        "<a href='#!'><div class='mask waves-effect waves-light'></div></a></div>";
+                    var content = "<div class='card-block'><h5 class='card-title'>" + datalists[i].s_unickname + "</h5>" +
+                        "<div class='read-more'><a href='#!' class='btn btn-primary waves-effect waves-light detailsBtn' data-albumId='" + datalists[i].s_userid + "'>开始了解</a></div></div>";
+                    var div = "<div class='col-md-2 col-xs-2 col-sm-2'><div class='card'>" + imgdiv + content + "</div></div>";
+                    $('#userList .row').append(div);
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

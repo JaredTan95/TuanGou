@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body class="view">
+<main>
+    <div class="container login-form wow fadeIn">
+        <div class="row">
+            <div class="col-sm-5 col-md-5 offset-sm-3">
+                <div class="mx-auto float-xs-none white z-depth-1 py-2 px-2 lighten-5">
+                    <!--Naked Form-->
+                    <div class="card-block">
+                        <!--Body-->
+                        <div class="container">
+                            <!-- Basic textbox -->
+                            <div class="md-form">
+                                <p>请输入注册信息</p>
+                            </div>
+                            <!-- /.Basic textbox -->
+
+                            <div class="md-form">
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="user-name" class="form-control">
+                                <label for="user-name" class="">账户</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="user-nickname" class="form-control">
+                                <label for="user-nickname" class="">昵称</label>
+                            </div>
+
+                            <!--Email validation-->
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="user-passwd" class="form-control validate">
+                                <label for="user-passwd" data-error="错误" data-success="正确" class="">账户密码</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="user-passwd-confirm" class="form-control validate">
+                                <label for="user-passwd-confirm" data-error="密码不一致" data-success="正确"
+                                       class="">确认密码</label>
+                            </div>
+
+                            <div class="text-xs-right">
+                                <div class="my-2" id="warn-info">
+                                    <p style="font-weight:300;font-size:0.75rem;color:red;display: none">输入有误，请重新输入！</p>
+                                </div>
+                                <span>已有账户？<a href="#!" class="goto-login"
+                                              style="text-decoration: underline">登录</a></span>
+                                <button id="btn-user-reg" class="btn btn-primary waves-effect waves-light">注册</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Naked Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $('#user-name').blur(function () {
+            if ($(this).val() != "") {
+                $.get("", function (msg) {
+                    if (msg == "false") {
+                        $('#warn-info p').show().html("用户名不可用");
+                    }
+                    else {
+                        $('#warn-info p').show().attr("color", 'green').html("用户名可用");
+                    }
+                });
+            }
+        });
+        $('#user-passwd-confirm').blur(function () {
+            if ($('#user-name').val() != $('#user-passwd-confirm').val()) {
+
+            } else {
+
+            }
+        });
+        $('#btn-user-reg').on('click', function () {
+            alert("抱歉，注册／登录功能暂未开放！!");
+            /*
+             $("input").each(function(){  //遍历input标签，判断是否有内容未填写
+             var vl=$(this).val();
+             if(vl==""){
+             $('#warn-info p').show();
+             }
+             });
+             var name = $('#user-name');
+             var passwd = $('#user-passwd');
+             var nickname=$('#user-nickname');
+             $.post("/login/regis", {account: name.val(), pwd: sha256_digest(passwd.val()),nickname:nickname.val()}, function (data) {
+             if (data == "true") {
+             $.get("/login/personal", function (url) {
+             $.tjAppJs.loadHtml2div(url);
+             });
+             } else if (data == "false") {
+             $('#warn-info p').show();
+             } else {
+             $('#warn-info p').html("").html("服务器错误，请稍后重试！");
+             }
+             });
+             });
+             $('.goto-login').on('click',function () {
+             $.tjAppJs.loadHtml2div("/Home/views/login.html");*/
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body data-type="widgets">
+<!-- 内容区域 -->
+<div class="row-content am-cf">
+    <div class="row">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">添加歌手</div>
+                    <div class="widget-function am-fr">
+                        <a href="javascript:;" class="am-icon-cog"></a>
+                    </div>
+                </div>
+                <div class="widget-body am-fr">
+                    <form id="add-singer-form" class="am-form tpl-form-line-form">
+                        <div class="am-form-group">
+                            <label for="singer-name" class="am-u-sm-3 am-form-label">歌手名 <span
+                                    class="tpl-form-line-small-title">Title</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" class="tpl-form-input" id="singer-name" placeholder="请输入歌手名">
+                                <small>请填写歌手名10-20字左右。</small>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="singer-gender" class="am-u-sm-3 am-form-label">性别 <span
+                                    class="tpl-form-line-small-title">Gender</span></label>
+                            <div class="am-u-sm-9">
+                                <select id="singer-gender">
+                                    <option value="2">男</option>
+                                    <option value="1">女</option>
+                                    <option value="3">男/女（团队）</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="singer-coverUrl" class="am-u-sm-3 am-form-label">歌手封面 <span class="tpl-form-line-small-title">Cover Url</span></label>
+                            <div class="am-u-sm-9">
+                                <input type="text" id="singer-coverUrl" placeholder="输入歌手封面图片的链接地址">
+                                例如：http://123.207.83.185/SpittrResources/Singer_CoverImg/Two-Steps-From-Hell.jpg
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="singer-descp" class="am-u-sm-3 am-form-label">歌手描述</label>
+                            <div class="am-u-sm-9">
+                                <textarea class="" rows="10" id="singer-descp" placeholder="请输入歌手描述"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <button type="button" id="btn-add-singer" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#btn-add-singer').on('click',function(){
+            var vals=[$('#singer-name'),$('#singer-gender'),$('#singer-coverUrl'),$('#singer-descp')];
+            $.post("/admin/addSinger",{name:vals[0].val(),gender:vals[1].val(),url:vals[2].val(),descp:vals[3].val()},function (data) {
+                if(data){
+                    alert("添加成功");
+                    for(var i=0;vals.length;i++){
+                        vals[i].val('');
+                    }
+                }else {
+                    alert("添加失败，请检查后重试!");
+                }
+            })
+        });
+    });
+</script>
+</body>
+</html>

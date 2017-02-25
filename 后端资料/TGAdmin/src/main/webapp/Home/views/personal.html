@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<main class="personalInfo">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4 animated wow fadeInLeft view overlay hm-blue-light">
+                    <img src="/Home/assets/img/icons/7978056371311178.jpeg" class="img-fluid" alt="用户头像">
+                    <div class="mask flex-center">
+                        <p class="white-text">点击修改头像</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 animated wow slideInRight">
+                    <h3>用户名</h3>
+                    <p>
+                        此人很懒，什么东西都没留下。
+                    </p>
+                </div>
+            </div>
+            <hr/>
+            <div class="animated wow fadeInUp">
+                <h6>听歌排行</h6>
+                <small>累计听歌<span>1436</span>首</small>
+                <div class="musiclists">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-1 col-md-1">
+                                    <span>1</span>
+                                </div>
+                                <div class="col-sm-1 col-md-1">
+                                    <a href="#">
+                                    <span>
+                                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-pause" aria-hidden="true"></i>
+                                        <!--<i class="fa fa-bar-chart-o" aria-hidden="true"></i>-->
+                                    </span>
+                                    </a>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                <span>
+                                <a href="#">The Mass</a>
+                                <a href="#" data-toggle="modal" data-target="#mv-Modal">
+                                    <i class="fa fa-film" aria-hidden="true"></i>
+                                </a>
+                                </span>
+                                </div>
+                                <div class="col-sm-3 col-md-3">
+                                <span>
+                                  <a href="#">Era</a>
+                                </span>
+                                </div>
+                                <div class="col-sm-2 col-md-2">
+                                    <span><a href="#">The Mass</a></span>
+                                </div>
+                                <div class="col-sm-1 col-md-1">
+                                <span>
+                                     10次
+                                </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="animated wow fadeInUp ">
+                <h6>收藏的歌曲</h6>
+                <div class="musiclists">
+                    <ul class="list-group" id="userfavMusic"></ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="animated wow zoomIn ">
+                <h6>收藏的专辑</h6>
+                <!--TODO：改成卡片展示-->
+                <div class="musiclists">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <span>1</span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <a href="#">
+                                    <span>
+                                    <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                    <i class="fa fa-pause" aria-hidden="true"></i>
+                                        <!--<i class="fa fa-bar-chart-o" aria-hidden="true"></i>-->
+                                    </span>
+                                    </a>
+                                </div>
+                                <div class="col-sm-4">
+                                <span>
+                                <a href="#">The Mass</a>
+                                <a href="#" data-toggle="modal" data-target="#mv-Modal">
+                                    <i class="fa fa-film" aria-hidden="true"></i>
+                                </a>
+                                </span>
+                                </div>
+                                <div class="col-sm-3">
+                                <span>
+                                  <a href="#">Era</a>
+                                </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <span><a href="#">The Mass</a></span>
+                                </div>
+                                <div class="col-sm-1">
+                                <span>
+                                     10次
+                                </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $(function () {
+            $.getJSON("/login/personalFavMusic", function (data) {
+                console.log("个人收藏音乐:" + data);
+                data2Elements4Music(data);
+            })
+        });
+
+        function data2Elements4Music(datalists) {
+            for (var i = 0; i < datalists.length; i++) {
+                var stitle = "<div class='col-sm-4'><span><a href='#!' data-songid='" + datalists[i].s_songid + "' class='get-music-detail'>" + datalists[i].s_title + "</a><a href='#!' data-toggle='modal' data-target='#mv-Modal'> <i class='fa fa-film' aria-hidden='true'></i> </a></span></div>";
+                var icon = "<div class='col-sm-1'><a href='#!'><span><i class='fa fa-play-circle' aria-hidden='true'></i><i class='fa fa-pause' aria-hidden='true'></i></span></a></div>";
+                var singer = "<div class='col-sm-3'><span><a href='#!'>" + datalists[i].s_singerid + "</a></span></div>";
+                var album = "<div class='col-sm-2'><span><a href='#!'>null</a></span></div>";
+                var times = "<div class='col-sm-1'><span>n次 </span></div>";
+                var order = "<div class='col-sm-1'><span>" + (i + 1) + "</span></div>";
+                var li = "<li class='list-group-item'><div class='row'>" + order + icon + stitle + singer + album + times + "</div></li>";
+                $('#userfavMusic').append(li);
+            }
+        }
+
+        $('.musiclists').on('click', '.get-music-detail', function () {
+            $.getJSON("/getMusicDetail?songid=" + $(this).attr("data-songid"), function (data) {
+                console.log(data);
+                $.tjAppJs.loadHtml2div("/Home/views/musicDetail.html");
+            });
+            /* console.log($(this).attr("data-songid"));*/
+        });
+    });
+</script>
+</body>
+</html>

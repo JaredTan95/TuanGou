@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body data-type="widgets">
+<script src="/Admin/assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 内容区域 -->
+    <div class="row-content am-cf">
+        <div class="row">
+            <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                <div class="widget am-cf">
+                    <div class="widget-head am-cf">
+                        <div class="widget-title  am-cf">专辑管理</div>
+                    </div>
+                    <div class="widget-body  am-fr">
+
+                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                            <div class="am-form-group">
+                                <div class="am-btn-toolbar">
+                                    <div class="am-btn-group am-btn-group-xs">
+                                        <button type="button" class="am-btn am-btn-default am-btn-success"><span
+                                                class="am-icon-plus"></span> 新增
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                            <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                <input type="text" class="am-form-field ">
+                                <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search"
+                    type="button"></button>
+          </span>
+                            </div>
+                        </div>
+
+                        <div class="am-u-sm-12">
+                            <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black ">
+                                <thead>
+                                <tr>
+                                    <th>专辑缩略图</th>
+                                    <th>专辑名</th>
+                                    <th>歌手id</th>
+                                    <th>发布时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tablebody-albums">
+                                <!--   <tr class="gradeX">
+                                       <td>
+                                           <img src="/Admin/assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                       </td>
+                                       <td class="am-text-middle">Amaze UI 模式窗口</td>
+                                       <td class="am-text-middle">张鹏飞</td>
+                                       <td class="am-text-middle">2016-09-26</td>
+                                       <td class="am-text-middle">
+                                           <div class="tpl-table-black-operation">
+                                               <a href="javascript:;">
+                                                   <i class="am-icon-pencil"></i> 编辑
+                                               </a>
+                                               <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                   <i class="am-icon-trash"></i> 删除
+                                               </a>
+                                           </div>
+                                       </td>
+                                   </tr>
+                                   <tr class="even gradeC">
+                                       <td>
+                                           <img src="../assets/img/k.jpg" class="tpl-table-line-img" alt="">
+                                       </td>
+                                       <td class="am-text-middle">有适配微信小程序的计划吗</td>
+                                       <td class="am-text-middle">天纵之人</td>
+                                       <td class="am-text-middle">2016-09-26</td>
+                                       <td class="am-text-middle">
+                                           <div class="tpl-table-black-operation">
+                                               <a href="javascript:;">
+                                                   <i class="am-icon-pencil"></i> 编辑
+                                               </a>
+                                               <a href="javascript:;" class="tpl-table-black-operation-del">
+                                                   <i class="am-icon-trash"></i> 删除
+                                               </a>
+                                           </div>
+                                       </td>
+                                   </tr>-->
+                                <!-- more data -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="am-u-lg-12 am-cf">
+                            <div class="am-fr">
+                                <ul class="am-pagination tpl-pagination">
+                                    <li class="am-disabled"><a href="#">«</a></li>
+                                    <li class="am-active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="nextpage"><a href="#!">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/admin/listAlbums", function (data) {
+            console.log(data);
+            data2Elements(data);
+        });
+        function data2Elements(datalists) {
+            for (var i = 0; i < datalists.length; i++) {
+                var td1 = "<td><img src='http://" + datalists[i].s_aCoverUrl + "' class='tpl-table-line-img' alt='" + datalists[i].s_atitle + "'></td>";
+                var td2 = "<td class='am-text-middle'>" + datalists[i].s_atitle + "</td>";
+                var td3 = "<td class='am-text-middle'>" + datalists[i].s_singerid + "</td>";
+                var td4 = "<td class='am-text-middle'>" + datalists[i].s_apubTime + "</td>";
+                var edit = "<div class='tpl-table-black-operation'> <a href='javascript:;'> " +
+                    "<i class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' class='tpl-table-black-operation-del'> " +
+                    "<i class='am-icon-trash'></i> 删除 </a></div>";
+                var td5 = "<td class='am-text-middle'>" + edit + "</td>";
+                var tr;
+                if (i % 2 == 0) {
+                    tr = "<tr class='even gradeC'>" + td1 + td2 + td3 + td4 + td5 + "</tr>";
+                } else {
+                    tr = "<tr class='gradeX'>" + td1 + td2 + td3 + td4 + td5 + "</tr>";
+                }
+                $('#tablebody-albums').append(tr);
+            }
+        }
+    });
+</script>
+</body>
+
+</html>

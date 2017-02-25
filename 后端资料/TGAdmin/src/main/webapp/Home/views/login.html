@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body class="view">
+<main>
+    <div class="container login-form wow fadeIn">
+        <div class="row">
+            <div class="col-sm-5 col-md-5 offset-sm-3">
+                <div class="mx-auto float-xs-none white z-depth-1 py-2 px-2 lighten-5">
+                    <!--Naked Form-->
+                    <div class="card-block">
+                        <!--Body-->
+                        <div class="container">
+                            <!-- Basic textbox -->
+                            <div class="md-form">
+                                <p>请输入登录信息</p>
+                            </div>
+                            <!-- /.Basic textbox -->
+
+                            <div class="md-form">
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="user-name" class="form-control">
+                                <label for="user-name" class="">账户</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="user-passwd" class="form-control validate">
+                                <label for="user-passwd" data-error="wrong" data-success="right" class="">密码</label>
+                            </div>
+                            <div class="text-xs-right">
+                                <div class="my-2" id="warn-info">
+                                    <p style="font-weight:300;font-size:0.75rem;color:red;display: none">输入有误，请重新输入！</p>
+                                </div>
+                                <span>还没有账户？<a href="#!" class="goto-reg" style="text-decoration: underline">注册</a></span>
+                                <button id="btn-user-login" class="btn btn-primary waves-effect waves-light">登录</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Naked Form-->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $('#btn-user-login').on('click', function () {
+            alert("抱歉，注册／登录功能暂未开放!");
+          /*  var name = $('#user-name');
+            var passwd = $('#user-passwd');
+            $.post("/login/validate", {uName: name.val(), uPwd:sha256_digest(passwd.val())}, function (data) {
+                if (data == "true") {
+                    $.get("/login/personal", function (url) {
+                        $.tjAppJs.loadHtml2div(url);
+                    });
+                } else if (data == "false") {
+                    $('#warn-info p').show();
+                } else {
+                    $('#warn-info p').html("").html("服务器错误，请稍后重试！");
+                }
+            });*/
+        });
+        $('.goto-reg').on('click',function () {
+            $.tjAppJs.loadHtml2div("/Home/views/registor.html");
+        });
+    });
+</script>
+</body>
+</html>
