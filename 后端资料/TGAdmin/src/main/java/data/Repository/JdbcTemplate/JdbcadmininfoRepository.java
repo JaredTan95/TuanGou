@@ -17,7 +17,6 @@ import java.util.Map;
  */
 public class JdbcadmininfoRepository implements admininfoRepository {
 
-/*    private JdbcOperations jdbcOperations;*/
     private JdbcTemplate jdbcTemplate;
 
     public JdbcadmininfoRepository(JdbcTemplate jdbcTemplate) {

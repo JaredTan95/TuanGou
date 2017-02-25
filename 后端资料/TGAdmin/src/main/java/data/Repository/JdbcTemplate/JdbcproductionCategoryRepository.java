@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Allen on 2017/2/25.
@@ -40,7 +39,7 @@ public class JdbcproductionCategoryRepository implements productCateRepository {
 
     @Override
     public productionCategory findOne(String id) {
-        return (productionCategory) jdbcTemplate.query(FINDONE_PRODUCTIONCATEGORY,new productionCategoryRowMapper(),id);
+        return (productionCategory)jdbcTemplate.queryForObject(FINDONE_PRODUCTIONCATEGORY,new productionCategoryRowMapper(),id);
     }
 
     @Override

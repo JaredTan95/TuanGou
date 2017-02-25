@@ -64,4 +64,6 @@ public class AdminController {
         HttpStatus status=new JdbcadmininfoRepository(jdbcTemplate).delete(id)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
         return new ResponseEntity<admininfo>(admin,status);
     }
+
+
 }
