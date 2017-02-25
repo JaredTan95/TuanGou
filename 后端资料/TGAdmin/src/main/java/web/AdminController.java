@@ -30,8 +30,7 @@ public class AdminController {
 
     /*查询一个用户的信息*/
     @RequestMapping(value = "/get/{id}",method = GET)
-    @ResponseBody
-    public admininfo get(@PathVariable("id") String id){
+    public @ResponseBody admininfo get(@PathVariable("id") String id){
         return new JdbcadmininfoRepository(jdbcTemplate).findOne(id);
     }
 
@@ -65,4 +64,6 @@ public class AdminController {
         HttpStatus status=new JdbcadmininfoRepository(jdbcTemplate).delete(id)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
         return new ResponseEntity<admininfo>(admin,status);
     }
+
+
 }
