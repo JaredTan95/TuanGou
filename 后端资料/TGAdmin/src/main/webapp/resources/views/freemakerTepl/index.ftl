@@ -204,7 +204,7 @@
                 <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
                 <li class="sidebar-nav-link">
                     <a href="/index" class="active">
-                        <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
+                        <i class="am-icon-home sidebar-nav-link-logo"></i> 管
                     </a>
                 </li>
                 <li class="sidebar-nav-link">

@@ -1,6 +1,7 @@
 package web;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -66,7 +67,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource ds = new ComboPooledDataSource();
         ds.setDriverClass("com.mysql.jdbc.Driver");
-        ds.setJdbcUrl("jdbc:mysql://115.159.216.56 :3306/TGAdmin");
+        ds.setJdbcUrl("jdbc:mysql://115.159.216.56:3306/TGAdmin");
         ds.setUser("dev");
         ds.setPassword("123456");
         ds.setInitialPoolSize(5);
@@ -99,6 +100,16 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public sessionInterceptor sessionInterceptor(){
         return new sessionInterceptor();
     }
+
+
+
+    @Bean
+    public JdbcadmininfoRepository jdbcadmininfoRepository(JdbcTemplate jdbcTemplate){
+        return new JdbcadmininfoRepository(jdbcTemplate);
+    }
+
+
+
 
     /*Json 化*/
     @Bean

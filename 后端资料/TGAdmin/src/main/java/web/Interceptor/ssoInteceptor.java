@@ -40,7 +40,7 @@ public class ssoInteceptor implements HandlerInterceptor {
             if (checkLogin(username, password)) {
                 Cookie ck = new Cookie("TGLogin", username + "_" + password);
                 ck.setPath("/");//设置到共有的根路径下
-                ck.setMaxAge(60);
+                ck.setMaxAge(6000);
                 response.addCookie(ck);
                 return true;
             }
@@ -61,8 +61,9 @@ public class ssoInteceptor implements HandlerInterceptor {
     }
 
     public boolean checkLogin(String username, String password) {
-        if ("tanjian".equals(username) && "tanjian".equals(password))
+       /* if ("tanjian".equals(username) && "tanjian".equals(password))
             return true;
-        return false;
+        return false;*/
+       return true;//TODO:未完成
     }
 }  

@@ -1,5 +1,3 @@
-package DAOJunitTest;
-
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
 import org.springframework.context.annotation.Bean;
@@ -45,7 +43,6 @@ public class JdbcConfig {
   public PlatformTransactionManager transactionManager(DataSource dataSource) {
     return new DataSourceTransactionManager(dataSource);
   }
-
 
   @Bean
     public JdbcadmininfoRepository jdbcadmininfoRepository(JdbcTemplate jdbcTemplate){

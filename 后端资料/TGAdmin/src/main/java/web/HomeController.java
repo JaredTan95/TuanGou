@@ -1,8 +1,15 @@
 package web;
 
+import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
+import data.domain.admininfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -14,6 +21,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @Controller
 @RequestMapping(value = "")
 public class HomeController {
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @RequestMapping(value = "", method = GET)
     public String index() {
@@ -74,4 +83,10 @@ public class HomeController {
         return "tables";
     }
 
+
+    @RequestMapping(value = "/testAdmininfo",method = GET)
+    @ResponseBody
+    public List<admininfo> getDmininfo(){
+        return new JdbcadmininfoRepository(jdbcTemplate).findAll();
+    }
 }

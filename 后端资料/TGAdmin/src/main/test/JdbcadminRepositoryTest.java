@@ -1,7 +1,3 @@
-package DAOJunitTest;
-
-
-
 import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
 import data.domain.admininfo;
 import org.junit.Test;
