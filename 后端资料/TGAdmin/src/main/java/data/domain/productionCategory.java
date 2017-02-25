@@ -8,7 +8,13 @@ public class productionCategory {
     private String cateId;
     private String cateTitle;
 
+    public productionCategory(String cateId, String cateTitle) {
+        this.cateId = cateId;
+        this.cateTitle = cateTitle;
+    }
+
     public productionCategory() {
+
     }
 
     public String getCateId() {

@@ -63,15 +63,4 @@ public class admininfo {
     public void setAdminLastLoginDate(Date adminLastLoginDate) {
         this.adminLastLoginDate = adminLastLoginDate;
     }
-
-    @Override
-    public String toString() {
-        return "admininfo{" +
-                "adminId='" + adminId + '\'' +
-                ", adminAccount='" + adminAccount + '\'' +
-                ", adminPwd='" + adminPwd + '\'' +
-                ", adminRegDate=" + adminRegDate +
-                ", adminLastLoginDate=" + adminLastLoginDate +
-                '}';
-    }
 }
