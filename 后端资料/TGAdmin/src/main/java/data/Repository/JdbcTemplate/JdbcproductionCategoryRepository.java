@@ -38,6 +38,8 @@ public class JdbcproductionCategoryRepository implements productCateRepository {
         return jdbcTemplate.update(UPDATE_PRODUCTIONCATEGORY,procate.getCateTitle())>0;
     }
 
+
+    //传ID
     @Override
     public productionCategory findOne(String id) {
         return (productionCategory) jdbcTemplate.query(FINDONE_PRODUCTIONCATEGORY,new productionCategoryRowMapper(),id);
@@ -48,6 +50,8 @@ public class JdbcproductionCategoryRepository implements productCateRepository {
         return jdbcTemplate.query(FINDALL_PRODUCTIONCATEGORY,new productionCategoryRowMapper());
     }
 
+
+    //传ID
     @Override
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_PRODUCTIONCATEGORY,id)>0;

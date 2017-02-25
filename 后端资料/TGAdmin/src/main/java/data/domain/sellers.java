@@ -15,8 +15,23 @@ public class sellers {
     private double sellerPhoneNum;
     private double sellerStaus;
 
-    public sellers() {
+    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
+                   double sellerLevel, String sellerRegDate, double sellerPhoneNum, double sellerStaus) {
+        this.sellerId = sellerId;
+        this.sellerTitle = sellerTitle;
+        this.sellerAccount = sellerAccount;
+        this.sellerPwd = sellerPwd;
+        this.sellerDscp = sellerDscp;
+        this.sellerLevel = sellerLevel;
+        this.sellerRegDate = sellerRegDate;
+        this.sellerPhoneNum = sellerPhoneNum;
+        this.sellerStaus = sellerStaus;
     }
+
+    public sellers() {
+
+    }
+
 
     public String getSellerId() {
         return sellerId;
