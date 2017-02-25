@@ -30,8 +30,7 @@ public class AdminController {
 
     /*查询一个用户的信息*/
     @RequestMapping(value = "/get/{id}",method = GET)
-    @ResponseBody
-    public admininfo get(@PathVariable("id") String id){
+    public @ResponseBody admininfo get(@PathVariable("id") String id){
         return new JdbcadmininfoRepository(jdbcTemplate).findOne(id);
     }
 
