@@ -9,21 +9,20 @@ public class productinfo {
     private String sellerId;
     private String cateId;
     private String ProductId;
-    private float Startprice;
+    private double Startprice;
     private String productionDscp;
     private double SalePrice;
-    private double AdCount;
+    private int AdCount;
     private String publishDate;
     private int sellCount;
     private String productPic;
-    private  double productStatus;
+    private  int productStatus;
 
-    public productinfo(String pro_cateId, String cateId, String productId, float startprice, String productionDscp, double salePrice, double adCount, String publishDate, int sellCount, String productPic, double productStatus) {
+    public productinfo() {
     }
 
-    public productinfo(String pro_cateId, String sellerId, String cateId, String productId, float startprice,
-                       String productionDscp, double salePrice, double adCount, String publishDate, int sellCount,
-                       String productPic, double productStatus) {
+    public productinfo(String pro_cateId, String sellerId, String cateId, String productId, double startprice, String productionDscp,
+                       double salePrice, int adCount, String publishDate, int sellCount, String productPic, int productStatus) {
         this.pro_cateId = pro_cateId;
         this.sellerId = sellerId;
         this.cateId = cateId;
@@ -70,11 +69,11 @@ public class productinfo {
         ProductId = productId;
     }
 
-    public float getStartprice() {
+    public double getStartprice() {
         return Startprice;
     }
 
-    public void setStartprice(float startprice) {
+    public void setStartprice(double startprice) {
         Startprice = startprice;
     }
 
@@ -94,11 +93,11 @@ public class productinfo {
         SalePrice = salePrice;
     }
 
-    public double getAdCount() {
+    public int getAdCount() {
         return AdCount;
     }
 
-    public void setAdCount(double adCount) {
+    public void setAdCount(int adCount) {
         AdCount = adCount;
     }
 
@@ -126,11 +125,11 @@ public class productinfo {
         this.productPic = productPic;
     }
 
-    public double getProductStatus() {
+    public int getProductStatus() {
         return productStatus;
     }
 
-    public void setProductStatus(double productStatus) {
+    public void setProductStatus(int productStatus) {
         this.productStatus = productStatus;
     }
 }

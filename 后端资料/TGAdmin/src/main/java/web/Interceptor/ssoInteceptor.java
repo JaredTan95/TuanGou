@@ -40,7 +40,7 @@ public class ssoInteceptor implements HandlerInterceptor {
             if (checkLogin(username, password)) {
                 Cookie ck = new Cookie("TGLogin", username + "_" + password);
                 ck.setPath("/");//设置到共有的根路径下
-                ck.setMaxAge(60);
+                ck.setMaxAge(3600);
                 response.addCookie(ck);
                 return true;
             }

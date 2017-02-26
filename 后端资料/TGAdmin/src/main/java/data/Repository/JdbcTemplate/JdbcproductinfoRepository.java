@@ -59,24 +59,25 @@ public class JdbcproductinfoRepository implements productinfoRepository {
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_PRODUCTINFO,id)>0;
     }
-    /*String pro_cateId, String sellerId, String cateId, String productId, float startprice,
-                       String productionDscp, double salePrice, double adCount, String publishDate, int sellCount,
-                       String productPic, double productStatus*/
+    /*String sellerId, String cateId, String productId, double startprice, String productionDscp,
+                       double salePrice, int adCount, String publishDate, int sellCount, String productPic, int productStatus*/
     private static final class productinfoRowMapper implements RowMapper{
 
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-            return new productinfo(resultSet.getString("pro_cateId")
+            return new productinfo(
+             resultSet.getString("pro_cateId")
+             ,resultSet.getString("sellerId")
             ,resultSet.getString("cateId")
             ,resultSet.getString("productId")
-            ,resultSet.getFloat("startprice")
+            ,resultSet.getDouble("startprice")
             ,resultSet.getString("productionDscp")
             ,resultSet.getDouble("salePrice")
-            ,resultSet.getDouble("adCount")
+            ,resultSet.getInt("adCount")
             ,resultSet.getString("publishDate")
             ,resultSet.getInt("sellCount")
             ,resultSet.getString("productPic")
-            ,resultSet.getDouble("productStatus"));
+            ,resultSet.getInt("productStatus"));
         }
     }
 }
