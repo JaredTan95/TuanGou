@@ -1,7 +1,5 @@
 package data.domain;
 
-import java.sql.Date;
-
 /**
  * Created by a on 2017/2/23.
  *   author:wuguoping
@@ -12,16 +10,13 @@ public class sellers {
     private String sellerAccount;
     private String sellerPwd;
     private String sellerDscp;
-    private int sellerLevel;
-    private Date sellerRegDate;
-    private String sellerPhoneNum;
-    private int sellerStatus;
+    private double sellerLevel;
+    private String sellerRegDate;
+    private double sellerPhoneNum;
+    private double sellerStaus;
 
-    public sellers(){
-
-    }
-    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd,
-                   String sellerDscp, int sellerLevel, Date sellerRegDate, String sellerPhoneNum, int sellerStatus) {
+    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
+                   double sellerLevel, String sellerRegDate, double sellerPhoneNum, double sellerStaus) {
         this.sellerId = sellerId;
         this.sellerTitle = sellerTitle;
         this.sellerAccount = sellerAccount;
@@ -30,8 +25,13 @@ public class sellers {
         this.sellerLevel = sellerLevel;
         this.sellerRegDate = sellerRegDate;
         this.sellerPhoneNum = sellerPhoneNum;
-        this.sellerStatus = sellerStatus;
+        this.sellerStaus = sellerStaus;
     }
+
+    public sellers() {
+
+    }
+
 
     public String getSellerId() {
         return sellerId;
@@ -73,35 +73,35 @@ public class sellers {
         this.sellerDscp = sellerDscp;
     }
 
-    public int getSellerLevel() {
+    public double getSellerLevel() {
         return sellerLevel;
     }
 
-    public void setSellerLevel(int sellerLevel) {
+    public void setSellerLevel(double sellerLevel) {
         this.sellerLevel = sellerLevel;
     }
 
-    public Date getSellerRegDate() {
+    public String getSellerRegDate() {
         return sellerRegDate;
     }
 
-    public void setSellerRegDate(Date sellerRegDate) {
+    public void setSellerRegDate(String sellerRegDate) {
         this.sellerRegDate = sellerRegDate;
     }
 
-    public String getSellerPhoneNum() {
+    public double getSellerPhoneNum() {
         return sellerPhoneNum;
     }
 
-    public void setSellerPhoneNum(String sellerPhoneNum) {
+    public void setSellerPhoneNum(double sellerPhoneNum) {
         this.sellerPhoneNum = sellerPhoneNum;
     }
 
-    public int getSellerStatus() {
-        return sellerStatus;
+    public double getSellerStaus() {
+        return sellerStaus;
     }
 
-    public void setSellerStatus(int sellerStatus) {
-        this.sellerStatus = sellerStatus;
+    public void setSellerStaus(double sellerStaus) {
+        this.sellerStaus = sellerStaus;
     }
 }

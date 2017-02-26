@@ -518,7 +518,7 @@
                 <#--</div>-->
             <#--</div>-->
         <#--</div>-->
-            <iframe src="/userInfo" style="width: 100%;height: 600px;" name="mainFrame" id="mainFrame"></iframe>
+            <iframe src="/productInfo" style="width: 100%;height: 600px;" name="mainFrame" id="mainFrame"></iframe>
     </div>
     </div>
     <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>

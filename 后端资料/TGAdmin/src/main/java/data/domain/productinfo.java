@@ -18,9 +18,6 @@ public class productinfo {
     private String productPic;
     private  double productStatus;
 
-    public productinfo() {
-    }
-
     public productinfo(String pro_cateId, String cateId, String productId, float startprice, String productionDscp, double salePrice, double adCount, String publishDate, int sellCount, String productPic, double productStatus) {
     }
 

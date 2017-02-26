@@ -19,6 +19,7 @@ public class JdbcsellerRepository implements sellerRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    /*增删改查*/
     private static final String INSERT_SELLER="INSERT INTO sellers(sellerId,sellerTitle,sellerAccount,sellerPwd" +
             ",sellerDscp,sellerLevel,sellerRegDate,sellerPhoneNum,sellerStatus) " +
             "values(?,?,?,?,?,?,?,?,?)";
@@ -36,7 +37,7 @@ public class JdbcsellerRepository implements sellerRepository {
     public boolean save(sellers ser) {
         return jdbcTemplate.update(INSERT_SELLER,ser.getSellerId(),ser.getSellerTitle(),ser.getSellerAccount()
                 ,ser.getSellerPwd(),ser.getSellerDscp(),ser.getSellerLevel(),ser.getSellerRegDate()
-                ,ser.getSellerPhoneNum(),ser.getSellerStatus())>0;
+                ,ser.getSellerPhoneNum(),ser.getSellerStaus())>0;
     }
 
     @Override
@@ -48,12 +49,12 @@ public class JdbcsellerRepository implements sellerRepository {
     public boolean update(sellers ser) {
         return jdbcTemplate.update(UPDATE_SELLER,ser.getSellerId(),ser.getSellerTitle(),ser.getSellerAccount()
                 ,ser.getSellerPwd(),ser.getSellerDscp(),ser.getSellerLevel(),ser.getSellerRegDate()
-                ,ser.getSellerPhoneNum(),ser.getSellerStatus())>0;
+                ,ser.getSellerPhoneNum(),ser.getSellerStaus())>0;
     }
 
     @Override
     public sellers findOne(String id) {
-        return (sellers)jdbcTemplate.queryForObject(FINDONE_SELLER,new sellersRowMapper(),id);
+        return (sellers)jdbcTemplate.query(FINDONE_SELLER,new sellersRowMapper(),id);
     }
 
     @Override
@@ -67,18 +68,19 @@ public class JdbcsellerRepository implements sellerRepository {
     }
 
     private static final class sellersRowMapper implements RowMapper{
-
-       @Override
+        /*String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
+                   double sellerLevel, String sellerRegDate, double sellerPhoneNum, double sellerStaus*/
+        @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             return new sellers(resultSet.getString("sellerId")
                                 ,resultSet.getString("sellerTitle")
                                 ,resultSet.getString("sellerAccount")
                                 ,resultSet.getString("sellerPwd")
                                 ,resultSet.getString("sellerDscp")
-                                ,resultSet.getInt("sellerLevel")
-                                ,resultSet.getDate("sellerRegDate")
-                                ,resultSet.getString("sellerPhoneNum")
-                                ,resultSet.getInt("sellerStatus"));
+                                ,resultSet.getDouble("sellerLevel")
+                                ,resultSet.getString("sellerRegDate")
+                                ,resultSet.getDouble("sellerPhoneNum")
+                                ,resultSet.getDouble("sellerStaus"));
         }
     }
 }

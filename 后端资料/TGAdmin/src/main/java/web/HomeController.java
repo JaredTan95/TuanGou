@@ -74,8 +74,8 @@ public class HomeController {
         return "tables";
     }
 
-    @RequestMapping(value = "/userInfo",method = GET)
-    public String userInfo(){
-        return "userinfo";
+    @RequestMapping(value = "/productInfo",method = GET)
+    public String productInfo(){
+        return "productInfo";
     }
 }

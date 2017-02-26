@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tanjian on 2017/2/24.
@@ -43,9 +44,9 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     }
 
     @Override
-    public boolean updatePasswd(String paswd,String id) {
+    public boolean updatePasswd(admininfo admin) {
         return jdbcTemplate.update(UPDATE_ADMIN_PWD,
-                paswd,id)>0;
+                admin.getAdminPwd(),admin.getAdminId())>0;
     }
 
     @Override
@@ -55,19 +56,18 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     }
 
     @Override
-    public admininfo findOne(String id) {
-        return (admininfo)jdbcTemplate.queryForObject(FIND_ONE_ADMIN,
-                new admininfoRowMapper(),id);
+    public admininfo findOne(admininfo admin) {
+        return (admininfo)jdbcTemplate.queryForObject(FIND_ONE_ADMIN,new admininfoRowMapper(),admin.getAdminId());
     }
 
     @Override
-    public List<admininfo> findAll() {
-        return jdbcTemplate.query(FIND_ALL,new admininfoRowMapper());
+    public List<Map<String, Object>> findAll() {
+        return jdbcTemplate.queryForList(FIND_ALL,new admininfoRowMapper());
     }
 
     @Override
-    public boolean delete(String id) {
-        return jdbcTemplate.update(DELETE_ADMIN_BY_ID,id)>0;
+    public boolean delete(admininfo admin) {
+        return jdbcTemplate.update(DELETE_ADMIN_BY_ID,admin.getAdminId())>0;
     }
 
     private final static class admininfoRowMapper implements RowMapper{
