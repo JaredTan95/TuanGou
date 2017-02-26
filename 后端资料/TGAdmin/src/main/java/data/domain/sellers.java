@@ -15,13 +15,13 @@ public class sellers {
     private int sellerLevel;
     private Date sellerRegDate;
     private String sellerPhoneNum;
-    private int sellerStaus;
+    private int sellerStatus;
 
-    public sellers() {
+    public sellers(){
+
     }
-
-    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
-                   int sellerLevel, Date sellerRegDate, String sellerPhoneNum, int sellerStaus) {
+    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd,
+                   String sellerDscp, int sellerLevel, Date sellerRegDate, String sellerPhoneNum, int sellerStatus) {
         this.sellerId = sellerId;
         this.sellerTitle = sellerTitle;
         this.sellerAccount = sellerAccount;
@@ -30,9 +30,8 @@ public class sellers {
         this.sellerLevel = sellerLevel;
         this.sellerRegDate = sellerRegDate;
         this.sellerPhoneNum = sellerPhoneNum;
-        this.sellerStaus = sellerStaus;
+        this.sellerStatus = sellerStatus;
     }
-
 
     public String getSellerId() {
         return sellerId;
@@ -98,11 +97,11 @@ public class sellers {
         this.sellerPhoneNum = sellerPhoneNum;
     }
 
-    public int getSellerStaus() {
-        return sellerStaus;
+    public int getSellerStatus() {
+        return sellerStatus;
     }
 
-    public void setSellerStaus(int sellerStaus) {
-        this.sellerStaus = sellerStaus;
+    public void setSellerStatus(int sellerStatus) {
+        this.sellerStatus = sellerStatus;
     }
 }

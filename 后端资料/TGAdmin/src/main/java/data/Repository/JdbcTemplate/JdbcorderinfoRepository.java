@@ -59,11 +59,6 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
     }
 
     private static final class orderinfoRowMapper implements RowMapper{
-
-        /*
-        * String orderID, String pro_cateId, String sellerId,
-                     String cateId, String productID, String userID, Date orderDate,
-                     int orderNum, int orderStatus, int orderVolume*/
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             return new orderinfo(resultSet.getString("orderID")

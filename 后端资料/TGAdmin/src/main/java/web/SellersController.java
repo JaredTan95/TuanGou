@@ -28,7 +28,7 @@ public class SellersController {
     /*
     *查询一个商家信息
     * */
-    @RequestMapping(value = "/seller/get/{id}",method = GET)
+    @RequestMapping(value = "/get/{id}",method = GET)
     public ResponseEntity<sellers> get(@PathVariable("id") String id){
         sellers seller;
         try

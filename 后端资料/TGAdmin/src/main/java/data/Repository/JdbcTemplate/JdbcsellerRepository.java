@@ -36,7 +36,7 @@ public class JdbcsellerRepository implements sellerRepository {
     public boolean save(sellers ser) {
         return jdbcTemplate.update(INSERT_SELLER,ser.getSellerId(),ser.getSellerTitle(),ser.getSellerAccount()
                 ,ser.getSellerPwd(),ser.getSellerDscp(),ser.getSellerLevel(),ser.getSellerRegDate()
-                ,ser.getSellerPhoneNum(),ser.getSellerStaus())>0;
+                ,ser.getSellerPhoneNum(),ser.getSellerStatus())>0;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class JdbcsellerRepository implements sellerRepository {
     public boolean update(sellers ser) {
         return jdbcTemplate.update(UPDATE_SELLER,ser.getSellerId(),ser.getSellerTitle(),ser.getSellerAccount()
                 ,ser.getSellerPwd(),ser.getSellerDscp(),ser.getSellerLevel(),ser.getSellerRegDate()
-                ,ser.getSellerPhoneNum(),ser.getSellerStaus())>0;
+                ,ser.getSellerPhoneNum(),ser.getSellerStatus())>0;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class JdbcsellerRepository implements sellerRepository {
                                 ,resultSet.getInt("sellerLevel")
                                 ,resultSet.getDate("sellerRegDate")
                                 ,resultSet.getString("sellerPhoneNum")
-                                ,resultSet.getInt("sellerStaus"));
+                                ,resultSet.getInt("sellerStatus"));
         }
     }
 }

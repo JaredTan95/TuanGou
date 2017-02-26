@@ -18,6 +18,9 @@ public class orderinfo {
     private int OrderStatus;
     private int OrderVolume;
 
+    public orderinfo() {
+    }
+
     public orderinfo(String orderID, String pro_cateId, String sellerId,
                      String cateId, String productID, String userID, Date orderDate,
                      int orderNum, int orderStatus, int orderVolume) {
