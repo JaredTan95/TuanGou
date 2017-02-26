@@ -78,4 +78,9 @@ public class HomeController {
     public String productInfo(){
         return "productInfo";
     }
+
+    @RequestMapping(value = "/orderInfo",method = GET)
+    public String orderInfo(){
+        return "orderInfo";
+    }
 }

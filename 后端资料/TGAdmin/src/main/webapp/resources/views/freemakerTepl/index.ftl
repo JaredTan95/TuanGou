@@ -208,8 +208,8 @@
                     </a>
                 </li>
                 <li class="sidebar-nav-link">
-                    <a href="/tables">
-                        <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
+                    <a href="/orderInfo" target="mainFrame">
+                        <i class="am-icon-table sidebar-nav-link-logo"></i> 订单
                     </a>
                 </li>
                 <li class="sidebar-nav-link">

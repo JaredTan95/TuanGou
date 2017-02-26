@@ -1,5 +1,13 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Amaze UI Admin index Examples</title>
+        <meta name="description" content="这是一个 index 页面">
+        <meta name="keywords" content="index">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
         <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
         <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
         <meta name="apple-mobile-web-app-title" content="Amaze UI" />
@@ -17,13 +25,45 @@
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
             <div class="widget am-cf">
                 <div class="widget-head am-cf">
-                    <div class="widget-title am-fl">斑马线</div>
                     <div class="widget-function am-fr">
                         <a href="javascript:;" class="am-icon-cog"></a>
                     </div>
                 </div>
+                <h1 class="am-form-icon" style="margin-top: -30px;margin-left: 20px;">商品信息</h1>
                 <div class="widget-body  widget-body-lg am-fr">
-
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                        <div class="am-form-group">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button type="button" class="am-btn am-btn-default am-btn-success"><span class="am-icon-plus"></span> 新增</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-warning"><span class="am-icon-archive"></span> 审核</button>
+                                    <button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                        <div class="am-form-group tpl-table-list-select">
+                            <select data-am-selected="{btnSize: 'sm'}">
+                                <option value="option1">所有类别</option>
+                                <option value="option2">IT业界</option>
+                                <option value="option3">数码产品</option>
+                                <option value="option3">笔记本电脑</option>
+                                <option value="option3">平板电脑</option>
+                                <option value="option3">只能手机</option>
+                                <option value="option3">超极本</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                        <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                            <input type="text" class="am-form-field ">
+                            <span class="am-input-group-btn">
+            <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+          </span>
+                        </div>
+                    </div>
                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
                         <thead>
                         <tr>
