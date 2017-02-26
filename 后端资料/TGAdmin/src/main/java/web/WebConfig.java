@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import web.Interceptor.sessionInterceptor;
-import web.Interceptor.ssoInteceptor;
+import web.Interceptor.SsoInteceptor;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
@@ -25,7 +25,7 @@ import java.beans.PropertyVetoException;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("web")
+@ComponentScan({"web","web.service"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -89,8 +89,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     //自定义拦截器
     @Bean
-    public ssoInteceptor ssoInteceptor(){
-        return new ssoInteceptor();
+    public SsoInteceptor ssoInteceptor(){
+        return new SsoInteceptor();
     }
 
 

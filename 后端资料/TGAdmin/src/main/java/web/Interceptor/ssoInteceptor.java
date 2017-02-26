@@ -5,14 +5,20 @@ package web.Interceptor;
  * 拦截器，实现SSO单点登录功能
  */
 
+import data.domain.admininfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import web.service.UserService;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.NoSuchAlgorithmException;
 
-public class ssoInteceptor implements HandlerInterceptor {
+public class SsoInteceptor implements HandlerInterceptor {
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -60,10 +66,10 @@ public class ssoInteceptor implements HandlerInterceptor {
 
     }
 
-    public boolean checkLogin(String username, String password) {
-//        if ("tanjian".equals(username) && "tanjian".equals(password))
-//            return true;
-//        return false;
-        return true;
+    public boolean checkLogin(String username, String password) throws NoSuchAlgorithmException {
+        admininfo admin=new admininfo();
+        admin.setAdminAccount(username);
+        admin.setAdminPwd(password);
+        return userService.Validate(admin);
     }
 }  
