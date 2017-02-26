@@ -77,10 +77,10 @@ public class JdbcsellerRepository implements sellerRepository {
                                 ,resultSet.getString("sellerAccount")
                                 ,resultSet.getString("sellerPwd")
                                 ,resultSet.getString("sellerDscp")
-                                ,resultSet.getInt("sellerLevel")
-                                ,resultSet.getDate("sellerRegDate")
-                                ,resultSet.getString("sellerPhoneNum")
-                                ,resultSet.getInt("sellerStaus"));
+                                ,resultSet.getDouble("sellerLevel")
+                                ,resultSet.getString("sellerRegDate")
+                                ,resultSet.getDouble("sellerPhoneNum")
+                                ,resultSet.getDouble("sellerStaus"));
         }
     }
 }

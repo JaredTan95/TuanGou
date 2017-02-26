@@ -21,6 +21,20 @@ public class orderinfo {
     public orderinfo() {
     }
 
+    public orderinfo(String orderID, String pro_cateId, String sellerId, String cateId, String productID,
+                     String userID, String orderDate, int orderNum, double orderStatus, double orderVolume) {
+        OrderID = orderID;
+        this.pro_cateId = pro_cateId;
+        this.sellerId = sellerId;
+        this.cateId = cateId;
+        ProductID = productID;
+        this.userID = userID;
+        OrderDate = orderDate;
+        OrderNum = orderNum;
+        OrderStatus = orderStatus;
+        OrderVolume = orderVolume;
+    }
+
     public String getOrderID() {
         return OrderID;
     }
