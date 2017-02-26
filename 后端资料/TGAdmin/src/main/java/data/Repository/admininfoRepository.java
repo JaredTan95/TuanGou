@@ -3,7 +3,6 @@ package data.Repository;
 import data.domain.admininfo;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by tanjian on 2017/2/24.
@@ -15,7 +14,7 @@ public interface admininfoRepository {
     boolean save(admininfo admin);
 
     /*更新某个管理员密码信息*/
-    boolean updatePasswd(admininfo admin);
+    boolean updatePasswd(String passwd,String id);
 
     /*更新某个管理员密码信息*/
     boolean updateLastLoginDate(admininfo admin);
@@ -23,13 +22,13 @@ public interface admininfoRepository {
     /*
     **通过指定信息，查询某个用户信息
     **/
-    admininfo  findOne(admininfo admin);
+    admininfo  findOne(String id);
 
     /*
     查询所有管理员信息
     */
-    List<Map<String, Object>> findAll();
+    List<admininfo> findAll();
 
     /*逐个删除管理员信息*/
-    boolean delete(admininfo admin);
+    boolean delete(String id);
 }

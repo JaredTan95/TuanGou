@@ -19,7 +19,6 @@ public class JdbcsellerRepository implements sellerRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /*增删改查*/
     private static final String INSERT_SELLER="INSERT INTO sellers(sellerId,sellerTitle,sellerAccount,sellerPwd" +
             ",sellerDscp,sellerLevel,sellerRegDate,sellerPhoneNum,sellerStatus) " +
             "values(?,?,?,?,?,?,?,?,?)";
@@ -54,7 +53,7 @@ public class JdbcsellerRepository implements sellerRepository {
 
     @Override
     public sellers findOne(String id) {
-        return (sellers)jdbcTemplate.query(FINDONE_SELLER,new sellersRowMapper(),id);
+        return (sellers)jdbcTemplate.queryForObject(FINDONE_SELLER,new sellersRowMapper(),id);
     }
 
     @Override
@@ -68,19 +67,18 @@ public class JdbcsellerRepository implements sellerRepository {
     }
 
     private static final class sellersRowMapper implements RowMapper{
-        /*String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
-                   double sellerLevel, String sellerRegDate, double sellerPhoneNum, double sellerStaus*/
-        @Override
+
+       @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             return new sellers(resultSet.getString("sellerId")
                                 ,resultSet.getString("sellerTitle")
                                 ,resultSet.getString("sellerAccount")
                                 ,resultSet.getString("sellerPwd")
                                 ,resultSet.getString("sellerDscp")
-                                ,resultSet.getDouble("sellerLevel")
-                                ,resultSet.getString("sellerRegDate")
-                                ,resultSet.getDouble("sellerPhoneNum")
-                                ,resultSet.getDouble("sellerStaus"));
+                                ,resultSet.getInt("sellerLevel")
+                                ,resultSet.getDate("sellerRegDate")
+                                ,resultSet.getString("sellerPhoneNum")
+                                ,resultSet.getInt("sellerStaus"));
         }
     }
 }

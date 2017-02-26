@@ -1,5 +1,6 @@
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
+import data.Repository.JdbcTemplate.JdbcorderinfoRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,13 +12,6 @@ import java.beans.PropertyVetoException;
 
 @Configuration
 public class JdbcConfig {
-  /*@Bean
-  public DataSource dataSource() {
-    return new EmbeddedDatabaseBuilder()
-      .setType(EmbeddedDatabaseType.H2)
-      .addScripts("classpath:spittr/db/jdbc/schema.sql", "classpath:spittr/db/jdbc/test-data.sql")
-      .build();
-  }*/
 
   /*配置C3P0数据库连接池*/
   @Bean
@@ -47,5 +41,10 @@ public class JdbcConfig {
   @Bean
     public JdbcadmininfoRepository jdbcadmininfoRepository(JdbcTemplate jdbcTemplate){
       return new JdbcadmininfoRepository(jdbcTemplate);
+  }
+
+  @Bean
+  public JdbcorderinfoRepository jdbcorderinfoRepository(JdbcTemplate jdbcTemplate){
+      return new JdbcorderinfoRepository(jdbcTemplate);
   }
 }

@@ -1,6 +1,6 @@
 package data.domain;
 
-import java.text.DecimalFormat;
+import java.sql.Date;
 
 /**
  * Created by a on 2017/2/23.
@@ -13,16 +13,14 @@ public class orderinfo {
     private String cateId;
     private String ProductID;
     private String userID;
-    private String OrderDate;
+    private Date OrderDate;
     private int OrderNum;
-    private double OrderStatus;
-    private double OrderVolume;
+    private int OrderStatus;
+    private int OrderVolume;
 
-    public orderinfo() {
-    }
-
-    public orderinfo(String orderID, String pro_cateId, String sellerId, String cateId, String productID,
-                     String userID, String orderDate, int orderNum, double orderStatus, double orderVolume) {
+    public orderinfo(String orderID, String pro_cateId, String sellerId,
+                     String cateId, String productID, String userID, Date orderDate,
+                     int orderNum, int orderStatus, int orderVolume) {
         OrderID = orderID;
         this.pro_cateId = pro_cateId;
         this.sellerId = sellerId;
@@ -83,11 +81,11 @@ public class orderinfo {
         this.userID = userID;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return OrderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         OrderDate = orderDate;
     }
 
@@ -99,19 +97,19 @@ public class orderinfo {
         OrderNum = orderNum;
     }
 
-    public double getOrderStatus() {
+    public int getOrderStatus() {
         return OrderStatus;
     }
 
-    public void setOrderStatus(double orderStatus) {
+    public void setOrderStatus(int orderStatus) {
         OrderStatus = orderStatus;
     }
 
-    public double getOrderVolume() {
+    public int getOrderVolume() {
         return OrderVolume;
     }
 
-    public void setOrderVolume(double orderVolume) {
+    public void setOrderVolume(int orderVolume) {
         OrderVolume = orderVolume;
     }
 }

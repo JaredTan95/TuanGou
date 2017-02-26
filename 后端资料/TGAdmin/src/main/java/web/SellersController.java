@@ -19,7 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
  */
 @ComponentScan
 @Controller
-@RequestMapping("/seller")
+@RequestMapping(value = "/seller")
 public class SellersController {
 
     @Autowired
@@ -28,18 +28,16 @@ public class SellersController {
     /*
     *查询一个商家信息
     * */
-    @RequestMapping(value = "/get/{id}",method = GET)
+    @RequestMapping(value = "/seller/get/{id}",method = GET)
     public ResponseEntity<sellers> get(@PathVariable("id") String id){
-        HttpStatus status;
         sellers seller;
         try
         {
             seller=new JdbcsellerRepository(jdbcTemplate).findOne(id);
-            status=HttpStatus.OK;
-            return new ResponseEntity<sellers>(seller,status);
+            return new ResponseEntity<sellers>(seller,HttpStatus.OK);
         }catch (Exception e){
-            status=HttpStatus.INTERNAL_SERVER_ERROR;
-            return new ResponseEntity<sellers>(new sellers(),status);
+            return new ResponseEntity<sellers>(new sellers(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -55,7 +53,7 @@ public class SellersController {
         seller.setSellerId(UUIDGenerator.getUUID());
         JdbcsellerRepository jdbcsellerRepository=new JdbcsellerRepository(jdbcTemplate);
         HttpStatus status=jdbcsellerRepository.save(seller)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
-        return new ResponseEntity<>(seller,status);
+        return new ResponseEntity<sellers>(seller,status);
     }
 
     /*

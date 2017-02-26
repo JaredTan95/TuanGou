@@ -23,8 +23,8 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
             "userID, orderDate, orderNum, orderStatus, orderVolume) values(?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_ORDERINFO="UPDATE orderinfo SET pro_cateId=?,sellerId=?,cateId=?,productID=?," +
             "userID=?,orderDate=?,orderNum=?,orderStatus=?,orderVolume=?";
-    private static final String FINDONE_ORDERINFO="SELECT orderID, pro_cateId, sellerId, cateId, productID," +
-            "userID, orderDate, orderNum, orderStatus, orderVolume FROM orderinfo WHERE orderID=?";
+    private static final String FINDONE_ORDERINFO="SELECT OrderID, pro_cateId, sellerId, cateId, ProductID," +
+            "userID, OrderDate, OrderNum, OrderStatus, OrderVolume FROM orderinfo WHERE OrderID=?";
     private static final String FINDALL_ORDERINFO="SELECT orderID, pro_cateId, sellerId, cateId, productID," +
             "userID, orderDate, orderNum, orderStatus, orderVolume FROM orderinfo";
     private static final String DELETE_ORDERINFO="DELETE FROM orderinfo WHERE orderID=?";
@@ -45,11 +45,11 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
 
     @Override
     public orderinfo findOne(String id) {
-        return (orderinfo) jdbcTemplate.query(FINDONE_ORDERINFO,new orderinfoRowMapper(),id);
+        return (orderinfo) jdbcTemplate.queryForObject(FINDONE_ORDERINFO,new orderinfoRowMapper(),id);
     }
 
     @Override
-    public List findAll() {
+    public List<orderinfo> findAll() {
         return jdbcTemplate.query(FINDALL_ORDERINFO,new orderinfoRowMapper());
     }
 
@@ -58,10 +58,12 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
         return jdbcTemplate.update(DELETE_ORDERINFO,id)>0;
     }
 
-    /*String orderID, String pro_cateId, String sellerId, String cateId, String productID,
-                     String userID, String orderDate, int orderNum, double orderStatus, double orderVolume*/
     private static final class orderinfoRowMapper implements RowMapper{
 
+        /*
+        * String orderID, String pro_cateId, String sellerId,
+                     String cateId, String productID, String userID, Date orderDate,
+                     int orderNum, int orderStatus, int orderVolume*/
         @Override
         public Object mapRow(ResultSet resultSet, int i) throws SQLException {
             return new orderinfo(resultSet.getString("orderID")
@@ -70,10 +72,10 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
             ,resultSet.getString("cateId")
             ,resultSet.getString("productID")
             ,resultSet.getString("userID")
-            ,resultSet.getString("orderDate")
+            ,resultSet.getDate("orderDate")
             ,resultSet.getInt("orderNum")
-            ,resultSet.getDouble("orderStatus")
-            ,resultSet.getDouble("orderVolume"));
+            ,resultSet.getInt("orderStatus")
+            ,resultSet.getInt("orderVolume"));
         }
     }
 }
