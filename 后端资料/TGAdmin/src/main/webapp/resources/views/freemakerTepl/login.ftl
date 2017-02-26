@@ -41,11 +41,11 @@
             </div>
             <form action="/sso/login" method="post" class="am-form tpl-form-line-form">
                 <div class="am-form-group">
-                    <input type="text" class="tpl-form-input" id="user-name" name="username" placeholder="请输入账号" required>
+                    <input type="text" class="tpl-form-input" id="user-name" name="username" placeholder="请输入账号" value="test" required>
                 </div>
                 <div class="am-form-group">
                     <input type="password" class="tpl-form-input" id="user-password" name="password"
-                           placeholder="请输入密码" required>
+                           placeholder="请输入密码" value="test" required>
                 </div>
                 <div class="am-form-group tpl-login-remember-me">
                     <input id="remember-me" type="checkbox">

@@ -1,5 +1,7 @@
 package data.domain;
 
+import java.sql.Date;
+
 /**
  * Created by a on 2017/2/23.
  *   author:wuguoping
@@ -10,13 +12,14 @@ public class sellers {
     private String sellerAccount;
     private String sellerPwd;
     private String sellerDscp;
-    private double sellerLevel;
-    private String sellerRegDate;
-    private double sellerPhoneNum;
-    private double sellerStaus;
+    private int sellerLevel;
+    private Date sellerRegDate;
+    private String sellerPhoneNum;
+    private int sellerStaus;
 
-    public sellers(String sellerId, String sellerTitle, String sellerAccount, String sellerPwd, String sellerDscp,
-                   double sellerLevel, String sellerRegDate, double sellerPhoneNum, double sellerStaus) {
+    public sellers(String sellerId, String sellerTitle, String sellerAccount,
+                   String sellerPwd, String sellerDscp, int sellerLevel,
+                   Date sellerRegDate, String sellerPhoneNum, int sellerStaus) {
         this.sellerId = sellerId;
         this.sellerTitle = sellerTitle;
         this.sellerAccount = sellerAccount;
@@ -29,9 +32,7 @@ public class sellers {
     }
 
     public sellers() {
-
     }
-
 
     public String getSellerId() {
         return sellerId;
@@ -73,35 +74,50 @@ public class sellers {
         this.sellerDscp = sellerDscp;
     }
 
-    public double getSellerLevel() {
+    public int getSellerLevel() {
         return sellerLevel;
     }
 
-    public void setSellerLevel(double sellerLevel) {
+    public void setSellerLevel(int sellerLevel) {
         this.sellerLevel = sellerLevel;
     }
 
-    public String getSellerRegDate() {
+    public Date getSellerRegDate() {
         return sellerRegDate;
     }
 
-    public void setSellerRegDate(String sellerRegDate) {
+    public void setSellerRegDate(Date sellerRegDate) {
         this.sellerRegDate = sellerRegDate;
     }
 
-    public double getSellerPhoneNum() {
+    public String getSellerPhoneNum() {
         return sellerPhoneNum;
     }
 
-    public void setSellerPhoneNum(double sellerPhoneNum) {
+    public void setSellerPhoneNum(String sellerPhoneNum) {
         this.sellerPhoneNum = sellerPhoneNum;
     }
 
-    public double getSellerStaus() {
+    public int getSellerStaus() {
         return sellerStaus;
     }
 
-    public void setSellerStaus(double sellerStaus) {
+    public void setSellerStaus(int sellerStaus) {
         this.sellerStaus = sellerStaus;
+    }
+
+    @Override
+    public String toString() {
+        return "sellers{" +
+                "sellerId='" + sellerId + '\'' +
+                ", sellerTitle='" + sellerTitle + '\'' +
+                ", sellerAccount='" + sellerAccount + '\'' +
+                ", sellerPwd='" + sellerPwd + '\'' +
+                ", sellerDscp='" + sellerDscp + '\'' +
+                ", sellerLevel=" + sellerLevel +
+                ", sellerRegDate=" + sellerRegDate +
+                ", sellerPhoneNum='" + sellerPhoneNum + '\'' +
+                ", sellerStaus=" + sellerStaus +
+                '}';
     }
 }

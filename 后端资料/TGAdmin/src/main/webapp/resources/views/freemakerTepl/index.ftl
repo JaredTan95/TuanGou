@@ -525,7 +525,10 @@
     <script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>
     <script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
     <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
-
+<form action="/seller/add" method="post">
+    <input name="sellerdscp" value="这是中文，别瞎搞"/>
+    <button type="submit">提交</button>
+</form>
 </body>
 
 </html>

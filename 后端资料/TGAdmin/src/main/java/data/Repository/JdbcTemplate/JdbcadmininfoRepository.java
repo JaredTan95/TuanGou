@@ -17,7 +17,6 @@ import java.util.Map;
  */
 public class JdbcadmininfoRepository implements admininfoRepository {
 
-/*    private JdbcOperations jdbcOperations;*/
     private JdbcTemplate jdbcTemplate;
 
     public JdbcadmininfoRepository(JdbcTemplate jdbcTemplate) {
@@ -44,20 +43,18 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     }
 
     @Override
-    public boolean updatePasswd(admininfo admin) {
-        return jdbcTemplate.update(UPDATE_ADMIN_PWD,
-                admin.getAdminPwd(),admin.getAdminId())>0;
+    public boolean updatePasswd(String id,String pwd) {
+        return jdbcTemplate.update(UPDATE_ADMIN_PWD, id,pwd)>0;
     }
 
     @Override
     public boolean updateLastLoginDate(admininfo admin) {
-        return jdbcTemplate.update(UPDATE_ADMIN_LASTLOGINDATE
-                            , admin.getAdminLastLoginDate(),admin.getAdminId())>0;
+        return jdbcTemplate.update(UPDATE_ADMIN_LASTLOGINDATE,admin.getAdminLastLoginDate(),admin.getAdminId())>0;
     }
 
     @Override
-    public admininfo findOne(admininfo admin) {
-        return (admininfo)jdbcTemplate.queryForObject(FIND_ONE_ADMIN,new admininfoRowMapper(),admin.getAdminId());
+    public admininfo findOne(String id) {
+        return (admininfo)jdbcTemplate.queryForObject(FIND_ONE_ADMIN,new admininfoRowMapper(),id);
     }
 
     @Override
@@ -66,8 +63,8 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     }
 
     @Override
-    public boolean delete(admininfo admin) {
-        return jdbcTemplate.update(DELETE_ADMIN_BY_ID,admin.getAdminId())>0;
+    public boolean delete(String id) {
+        return jdbcTemplate.update(DELETE_ADMIN_BY_ID,id)>0;
     }
 
     private final static class admininfoRowMapper implements RowMapper{
