@@ -19,6 +19,7 @@ public class HomeController {
     public String index() {
         return "index";
     }
+
     @RequestMapping(value = "/index", method = GET)
     public String index2() {
         return "index";
@@ -74,13 +75,22 @@ public class HomeController {
         return "tables";
     }
 
-    @RequestMapping(value = "/productInfo",method = GET)
-    public String productInfo(){
+    @RequestMapping(value = "/productInfo", method = GET)
+    public String productInfo() {
         return "productInfo";
     }
 
-    @RequestMapping(value = "/orderInfo",method = GET)
-    public String orderInfo(){
+    @RequestMapping(value = "/orderInfo", method = GET)
+    public String orderInfo() {
         return "orderInfo";
+    }
+
+    @RequestMapping(value = "/sellers", method = GET)
+    public String sellers() {
+        return "sellers";
+    }
+    @RequestMapping(value = "/productionCategory", method = GET)
+    public String productionCategory() {
+        return "productionCategory";
     }
 }
