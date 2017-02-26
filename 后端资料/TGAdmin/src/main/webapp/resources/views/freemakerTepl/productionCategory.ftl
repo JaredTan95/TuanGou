@@ -29,7 +29,7 @@
                         <a href="javascript:;" class="am-icon-cog"></a>
                     </div>
                 </div>
-                <h1 class="am-form-icon" style="margin-top: -30px;margin-left: 20px;">商品信息</h1>
+                <h1 class="am-form-icon" style="margin-top: -30px;margin-left: 20px;">商品分类</h1>
                 <div class="widget-body  widget-body-lg am-fr">
                     <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
                         <div class="am-form-group">
@@ -67,25 +67,13 @@
                     <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
                         <thead>
                         <tr>
-                            <th>商品名称</th>
-                            <th>商品描述</th>
-                            <th>商品原价</th>
-                            <th>商品现价</th>
-                            <th>卖出数量</th>
-                            <th><a>商品预览图</a></th>
-                            <th>商品状态</th>
-                            <th>商品操作</th>
+                            <th>分类</th>
+                            <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr class="gradeX">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
+                            <td>日用品</td>
                             <td>
                                 <div class="tpl-table-black-operation">
                                     <a href="javascript:;">
@@ -96,15 +84,8 @@
                                     </a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
+                        </tr>                       <tr class="even gradeC">
+                            <td>日用品</td>
                             <td>
                                 <div class="tpl-table-black-operation">
                                     <a href="javascript:;">
@@ -117,13 +98,19 @@
                             </td>
                         </tr>
                         <tr class="gradeX">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
+                            <td>日用品</td>
+                            <td>
+                                <div class="tpl-table-black-operation">
+                                    <a href="javascript:;">
+                                        <i class="am-icon-pencil"></i> 编辑
+                                    </a>
+                                    <a href="javascript:;" class="tpl-table-black-operation-del">
+                                        <i class="am-icon-trash"></i> 删除
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>                       <tr class="even gradeC">
+                            <td>日用品</td>
                             <td>
                                 <div class="tpl-table-black-operation">
                                     <a href="javascript:;">
@@ -135,14 +122,8 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="even gradeC">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
+                        <tr class="gradeX">
+                            <td>日用品</td>
                             <td>
                                 <div class="tpl-table-black-operation">
                                     <a href="javascript:;">
@@ -153,15 +134,8 @@
                                     </a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr class="even gradeC">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
+                        </tr>                       <tr class="even gradeC">
+                            <td>日用品</td>
                             <td>
                                 <div class="tpl-table-black-operation">
                                     <a href="javascript:;">
@@ -174,25 +148,6 @@
                             </td>
                         </tr>
 
-                        <tr class="even gradeC">
-                            <td>surface pro4</td>
-                            <td>微软出品笔记本</td>
-                            <td>4999</td>
-                            <td>4555</td>
-                            <td>20</td>
-                            <td><a>预览图</a></td>
-                            <td>在售</td>
-                            <td>
-                                <div class="tpl-table-black-operation">
-                                    <a href="javascript:;">
-                                        <i class="am-icon-pencil"></i> 编辑
-                                    </a>
-                                    <a href="javascript:;" class="tpl-table-black-operation-del">
-                                        <i class="am-icon-trash"></i> 删除
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
                         <!-- more data -->
                         </tbody>
                     </table>
