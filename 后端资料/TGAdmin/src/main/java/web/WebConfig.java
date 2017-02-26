@@ -4,6 +4,10 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -18,6 +22,9 @@ import web.Interceptor.ssoInteceptor;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Created by tanjian on 16/9/14.
@@ -27,7 +34,6 @@ import java.beans.PropertyVetoException;
 @EnableWebMvc
 @ComponentScan("web")
 public class WebConfig extends WebMvcConfigurerAdapter {
-
     @Bean
     public FreeMarkerConfigurer freeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
@@ -66,7 +72,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
         ComboPooledDataSource ds = new ComboPooledDataSource();
         ds.setDriverClass("com.mysql.jdbc.Driver");
-        ds.setJdbcUrl("jdbc:mysql://115.159.216.56 :3306/TGAdmin");
+        ds.setJdbcUrl("jdbc:mysql://115.159.216.56:3306/TGAdmin");
         ds.setUser("dev");
         ds.setPassword("123456");
         ds.setInitialPoolSize(5);
@@ -94,17 +100,46 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
 
-    //自定义session拦截器,但为注册
+    //自定义session拦截器,但未注册
     @Bean
     public sessionInterceptor sessionInterceptor(){
         return new sessionInterceptor();
     }
 
+
     /*Json 化*/
     @Bean
     public MappingJackson2JsonView mappingJackson2JsonView() {
         MappingJackson2JsonView mappingJackson2JsonView = new MappingJackson2JsonView();
-        mappingJackson2JsonView.setContentType("application/json");
+        mappingJackson2JsonView.setContentType("application/json;charset=utf-8");
         return mappingJackson2JsonView;
+    }
+
+    @Bean
+    public StringHttpMessageConverter stringHttpMessageConverter(){
+          StringHttpMessageConverter stringHttpMessageConverter=new StringHttpMessageConverter(Charset.forName("UTF-8"));
+      stringHttpMessageConverter.setWriteAcceptCharset(false);
+        List<MediaType> mediaTypes= new ArrayList<>();
+        mediaTypes.add(new MediaType("text","plain", Charset.forName("UTF-8")));
+        stringHttpMessageConverter.setSupportedMediaTypes(mediaTypes);
+        return new StringHttpMessageConverter(Charset.forName("UTF-8"));
+    }
+
+
+    //TODO:乱码问题！！！
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        StringHttpMessageConverter stringHttpMessageConverter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
+        MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter=new MappingJackson2HttpMessageConverter();
+        List<MediaType> mediaTypes= new ArrayList<>();
+        mediaTypes.add(new MediaType("*","*", Charset.forName("UTF-8")));
+        mediaTypes.add(new MediaType("text","plain", Charset.forName("UTF-8")));
+        mediaTypes.add(new MediaType("application","json", Charset.forName("UTF-8")));
+        mediaTypes.add(new MediaType("text","*", Charset.forName("UTF-8")));
+        mappingJackson2HttpMessageConverter.setSupportedMediaTypes(mediaTypes);
+        stringHttpMessageConverter.setSupportedMediaTypes(mediaTypes);
+        stringHttpMessageConverter.setDefaultCharset(Charset.forName("UTF-8"));
+        converters.add(mappingJackson2HttpMessageConverter);
+        converters.add(stringHttpMessageConverter());
     }
 }

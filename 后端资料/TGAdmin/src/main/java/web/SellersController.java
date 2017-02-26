@@ -1,0 +1,81 @@
+package web;
+
+import data.Repository.JdbcTemplate.JdbcsellerRepository;
+import data.domain.sellers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import utils.UUIDGenerator;
+
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+/**
+ * Created by tanjian on 2017/2/25.
+ * 对商家信息进行操作API
+ */
+@ComponentScan
+@Controller
+@RequestMapping("/seller")
+public class SellersController {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    /*
+    *查询一个商家信息
+    * */
+    @RequestMapping(value = "/get/{id}",method = GET)
+    public ResponseEntity<sellers> get(@PathVariable("id") String id){
+        HttpStatus status;
+        sellers seller;
+        try
+        {
+            seller=new JdbcsellerRepository(jdbcTemplate).findOne(id);
+            status=HttpStatus.OK;
+            return new ResponseEntity<sellers>(seller,status);
+        }catch (Exception e){
+            status=HttpStatus.INTERNAL_SERVER_ERROR;
+            return new ResponseEntity<sellers>(new sellers(),status);
+        }
+    }
+
+    /*
+    * 添加一个商家信息
+    * 参数体：x-www-form-urlencoded
+    * 参数：sellers对象的属性
+    * */
+    @RequestMapping(value = "/add",method = POST)
+   /* public @ResponseBody sellers add(String title, String account, String pwd
+            , String dscp, int level, Date date,String phone,int status){*/
+   public ResponseEntity<sellers>  add(sellers seller){
+        seller.setSellerId(UUIDGenerator.getUUID());
+        JdbcsellerRepository jdbcsellerRepository=new JdbcsellerRepository(jdbcTemplate);
+        HttpStatus status=jdbcsellerRepository.save(seller)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
+        return new ResponseEntity<>(seller,status);
+    }
+
+    /*
+    * 更新一个商家信息
+    * */
+    @RequestMapping(value = "/update",method = PUT)
+    public ResponseEntity<sellers> update(sellers seller){
+       HttpStatus status = new JdbcsellerRepository(jdbcTemplate).update(seller)
+               ?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
+       return new ResponseEntity<sellers>(seller,HttpStatus.OK);
+    }
+
+    /*
+    * 删除一个商家信息
+    * */
+    @RequestMapping(value = "/delete/{id}",method =DELETE )
+    public ResponseEntity<sellers> delete(@PathVariable("id") String id){
+        JdbcsellerRepository jdbcsellerRepository=new JdbcsellerRepository(jdbcTemplate);
+        sellers seller=jdbcsellerRepository.findOne(id);
+        HttpStatus status=jdbcsellerRepository.delete(id)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
+        return new ResponseEntity<sellers>(seller,status);
+    }
+}
