@@ -26,7 +26,7 @@ $(function() {
     //     }else{
     //       storageSave(saveSelectColor);
     //     }
-})
+});
 
 
 // 页面数据
@@ -307,14 +307,14 @@ var pageData = {
         };
         echartsA.setOption(option);
     }
-}
+};
 
 
 // 风格切换
 
 $('.tpl-skiner-toggle').on('click', function() {
     $('.tpl-skiner').toggleClass('active');
-})
+});
 
 $('.tpl-skiner-content-bar').find('span').on('click', function() {
     $('body').attr('class', $(this).attr('data-color'))
@@ -322,18 +322,13 @@ $('.tpl-skiner-content-bar').find('span').on('click', function() {
     // 保存选择项
     storageSave(saveSelectColor);
 
-})
+});
 
 
 
 
 // 侧边菜单开关
-
-
 function autoLeftNav() {
-
-
-
     $('.tpl-header-switch-button').on('click', function() {
         if ($('.left-sidebar').is('.active')) {
             if ($(window).width() > 1024) {
@@ -347,7 +342,7 @@ function autoLeftNav() {
                 $('.tpl-content-wrapper').addClass('active');
             }
         }
-    })
+    });
 
     if ($(window).width() < 1024) {
         $('.left-sidebar').addClass('active');
@@ -356,15 +351,30 @@ function autoLeftNav() {
     }
 }
 
+//TODO:后台管理函数方法通过全局函数调用
+//全局函数
+jQuery.TGAdmin={
+    login:function () {
+        var name=$('#user-name').val();
+        var passwd=$('#user-password').val();
+        $.ajax({
+            type: "POST",
+            url: "/sso/login",
+            dataType: "json",
+            data:{username:name,password:passwd},
+            statusCode:{
+                200:function () {
+                    location.href="/";
+                },
+                500:function () {
+                    alert("请重新尝试!");
+                }
+            }
+        });
+    }
+};
 
-// 侧边菜单
-$('.sidebar-nav-sub-title').on('click', function() {
-    $(this).siblings('.sidebar-nav-sub').slideToggle(80)
-        .end()
-        .find('.sidebar-nav-sub-ico').toggleClass('sidebar-nav-sub-ico-rotate');
-});
 
-//TODO:actice消失
-$('.sidebar-nav-link').bind('click', function () {
-    $(this).addClass('active').siblings().removeClass('active');
+$('#loginBtn').on('click',function () {
+    $.TGAdmin.login();
 });

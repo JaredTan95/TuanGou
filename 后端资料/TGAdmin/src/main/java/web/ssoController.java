@@ -20,7 +20,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @ComponentScan
 @Controller
 @RequestMapping(value = "/sso")
-public class ssoController {
+public class SsoController {
     @Autowired
     private UserService userService;
     @RequestMapping(value = "")

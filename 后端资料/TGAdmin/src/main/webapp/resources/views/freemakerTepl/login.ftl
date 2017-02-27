@@ -39,7 +39,7 @@
         <div class="tpl-login-content">
             <div class="tpl-login-logo">
             </div>
-            <form action="/sso/login" method="post" class="am-form tpl-form-line-form">
+            <form class="am-form tpl-form-line-form">
                 <div class="am-form-group">
                     <input type="text" class="tpl-form-input" id="user-name" name="username" placeholder="请输入账号" required>
                 </div>
@@ -54,8 +54,8 @@
                     </label>
                 </div>
                 <div class="am-form-group">
-                    <button type="submit"
-                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交
+                    <button type="button"
+                            class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn" id="loginBtn">登录
                     </button>
                 </div>
             </form>
@@ -64,7 +64,5 @@
 </div>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
-
 </body>
-
 </html>
