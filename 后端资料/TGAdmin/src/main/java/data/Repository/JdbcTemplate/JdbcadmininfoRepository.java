@@ -1,6 +1,7 @@
 package data.Repository.JdbcTemplate;
 
 import data.Repository.admininfoRepository;
+import data.domain.Page;
 import data.domain.admininfo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tanjian on 2017/2/24.
@@ -16,7 +18,6 @@ import java.util.List;
  */
 public class JdbcadmininfoRepository implements admininfoRepository {
 
-/*    private JdbcOperations jdbcOperations;*/
     private JdbcTemplate jdbcTemplate;
 
     public JdbcadmininfoRepository(JdbcTemplate jdbcTemplate) {
@@ -24,7 +25,7 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     }
 
 
-
+    private final static String tableName="admininfo";
     private final static String  INSERT_ADMININFO="INSERT INTO admininfo " +
             "(adminId,adminAccount,adminPwd,adminRegDate,adminLastLoginDate) " +
             "VALUES(?,?,?,?,?);";
@@ -73,6 +74,13 @@ public class JdbcadmininfoRepository implements admininfoRepository {
     @Override
     public boolean validate(String name,String passwd) {
         return (admininfo) jdbcTemplate.queryForObject(VALIDATE_USER,new admininfoRowMapper(),name,passwd)!=null;
+    }
+
+    @Override
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage) {
+        String sql = "select * from " + tableName + where;
+        Page page = new Page(sql, currentPage, numPerPage, jdbcTemplate);
+        return page.getResultList();
     }
 
     private final static class admininfoRowMapper implements RowMapper{

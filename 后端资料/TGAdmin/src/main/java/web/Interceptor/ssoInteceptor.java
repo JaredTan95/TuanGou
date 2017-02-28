@@ -51,7 +51,6 @@ public class SsoInteceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        //TODO:拦截器已生效，未完成认证业务
         request.getRequestDispatcher("/login").forward(request, response);
         return false;
     }

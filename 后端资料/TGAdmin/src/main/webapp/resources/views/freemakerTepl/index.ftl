@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>团购网后台管理系统</title>
-    <meta name="description" content="这是一个 index 页面">
     <meta name="keywords" content="index">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
+    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/img/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
     <script src="/resources/views/freemakerTepl/assets/js/echarts.min.js"></script>
@@ -18,7 +16,6 @@
     <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.datatables.min.css"/>
     <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/app.css">
     <script src="/resources/views/freemakerTepl/assets/js/jquery.min.js"></script>
-
 </head>
 
 <body data-type="index">
@@ -28,16 +25,10 @@
     <header>
         <!-- logo -->
         <div class="am-fl tpl-header-logo">
-            <a href="javascript:;"><img src="/resources/views/freemakerTepl/assets/img/logo.png" alt=""></a>
+            <a href="javascript:;">团购网后台管理系统</a>
         </div>
         <!-- 右侧内容 -->
         <div class="tpl-header-fluid">
-            <!-- 侧边切换 -->
-            <div class="am-fl tpl-header-switch-button am-icon-list">
-                    <span>
-
-                </span>
-            </div>
             <!-- 搜索 -->
             <div class="am-fl tpl-header-search">
                 <form class="tpl-header-search-form" action="javascript:;">
@@ -150,8 +141,6 @@
                                     </div>
                                 </a>
                             </li>
-
-
                             <li class="tpl-dropdown-menu-notifications">
                                 <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
                                     <i class="am-icon-bell"></i> 进入列表…
@@ -169,22 +158,7 @@
                 </ul>
             </div>
         </div>
-
     </header>
-    <!-- 风格切换 -->
-    <div class="tpl-skiner">
-        <div class="tpl-skiner-toggle am-icon-cog">
-        </div>
-        <div class="tpl-skiner-content">
-            <div class="tpl-skiner-content-title">
-                选择主题
-            </div>
-            <div class="tpl-skiner-content-bar">
-                <span class="skiner-color skiner-white" data-color="theme-white"></span>
-                <span class="skiner-color skiner-black" data-color="theme-black"></span>
-            </div>
-        </div>
-    </div>
     <!-- 侧边导航栏 -->
     <div class="left-sidebar">
         <!-- 用户信息 -->
@@ -203,19 +177,17 @@
 
         <!-- 菜单 -->
         <ul class="sidebar-nav">
-            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
+            <li class="sidebar-nav-heading">后台管理 <span class="sidebar-nav-heading-info"> 常用管理</span></li>
             <li class="sidebar-nav-link">
-                <a href="/productionCategory" target="mainFrame">
+                <a href="/productionCategory"  class="active" target="mainFrame">
                     <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 商品分类
-
                 </a>
             </li>
-            <li class="sidebar-nav-link">
-
-                <a href="/index" class="active">
+         <#--   <li class="sidebar-nav-link">
+                <a href="/index">
                     <i class="am-icon-home sidebar-nav-link-logo"></i> 商品详情
                 </a>
-            </li>
+            </li>-->
             <li class="sidebar-nav-link">
                 <a href="/orderInfo" target="mainFrame">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 订单详情
@@ -228,63 +200,31 @@
             </li>
 
             <li class="sidebar-nav-link">
-                <a href="/chart">
-                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
-
-                </a>
-            </li>
-
-            <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
-            <li class="sidebar-nav-link">
-                <a href="javascript:;" class="sidebar-nav-sub-title">
-                    <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
-                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                </a>
-                <ul class="sidebar-nav sidebar-nav-sub">
-                    <li class="sidebar-nav-link">
-                        <a href="/table-list">
-                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
-                        </a>
-                    </li>
-
-                    <li class="sidebar-nav-link">
-                        <a href="/table-list-img">
-                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="sidebar-nav-link">
-                <a href="/sign-up">
-                    <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
-                    <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
+                <a href="!#">
+                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 统计分析
                 </a>
             </li>
             <li class="sidebar-nav-link">
-                <a href="/login">
-                    <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
+                <a href="!#">
+                    <i class="am-icon-tv sidebar-nav-link-logo"></i> 用户管理
                 </a>
             </li>
             <li class="sidebar-nav-link">
                 <a href="/404">
-                    <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
+                    <i class="am-icon-eraser sidebar-nav-link-logo"></i> 404错误
                 </a>
             </li>
-
         </ul>
     </div>
-
-
     <!-- 内容区域 -->
     <div class="tpl-content-wrapper">
-        <iframe src="/productInfo" style="width: 100%;height: 600px;" name="mainFrame" id="mainFrame"></iframe>
+        <iframe src="/productionCategory" style="width: 100%;height: 78rem;" name="mainFrame" id="mainFrame"></iframe>
     </div>
 </div>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
-
 </body>
 
 </html>

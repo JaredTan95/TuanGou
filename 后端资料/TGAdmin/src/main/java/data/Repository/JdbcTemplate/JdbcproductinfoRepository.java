@@ -1,6 +1,7 @@
 package data.Repository.JdbcTemplate;
 
 import data.Repository.productinfoRepository;
+import data.domain.Page;
 import data.domain.productinfo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Allen on 2017/2/25.
@@ -19,6 +21,7 @@ public class JdbcproductinfoRepository implements productinfoRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
     //增删改查
+    private static final String tableName="productinfo";
     private static final String INSERT_PRODUCTINFO="INSERT INTO productinfo(pro_cateId, sellerId, cateId, productId, " +
                                                     "startprice,productionDscp, salePrice, adCount, publishDate, sellCount," +
                                                     "productPic, productStatus) values(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -59,6 +62,14 @@ public class JdbcproductinfoRepository implements productinfoRepository {
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_PRODUCTINFO,id)>0;
     }
+
+    @Override
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage) {
+        String sql = "select * from " + tableName + where;
+        Page page = new Page(sql, currentPage, numPerPage, jdbcTemplate);
+        return page.getResultList();
+    }
+
     /*String sellerId, String cateId, String productId, double startprice, String productionDscp,
                        double salePrice, int adCount, String publishDate, int sellCount, String productPic, int productStatus*/
     private static final class productinfoRowMapper implements RowMapper{

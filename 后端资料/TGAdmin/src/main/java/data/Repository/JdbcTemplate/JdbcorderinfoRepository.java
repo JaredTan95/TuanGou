@@ -1,6 +1,7 @@
 package data.Repository.JdbcTemplate;
 
 import data.Repository.orderinfoRepository;
+import data.domain.Page;
 import data.domain.orderinfo;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -8,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Allen on 2017/2/25.
@@ -15,10 +17,12 @@ import java.util.List;
 public class JdbcorderinfoRepository implements orderinfoRepository {
     private JdbcTemplate jdbcTemplate;
 
+
     public JdbcorderinfoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    private static final  String tableName="orderinfo";
     private static final String INSERT_ORDERINFO="INSERT INTO orderinfo(orderID, pro_cateId, sellerId, cateId, productID," +
             "userID, orderDate, orderNum, orderStatus, orderVolume) values(?,?,?,?,?,?,?,?,?,?)";
     private static final String UPDATE_ORDERINFO="UPDATE orderinfo SET pro_cateId=?,sellerId=?,cateId=?,productID=?," +
@@ -56,6 +60,13 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
     @Override
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_ORDERINFO,id)>0;
+    }
+
+    @Override
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage) {
+        String sql = "select * from " + tableName + where;
+        Page page = new Page(sql, currentPage, numPerPage, jdbcTemplate);
+        return page.getResultList();
     }
 
     /*String orderID, String pro_cateId, String sellerId, String cateId, String productID,

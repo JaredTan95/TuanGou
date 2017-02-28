@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 public class UserService {
 
     public UserService() {
-        System.out.println("调用UserService");
+    /*    System.out.println("调用UserService");*/
     }
 
     @Autowired

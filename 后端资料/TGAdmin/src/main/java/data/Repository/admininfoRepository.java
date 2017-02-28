@@ -3,6 +3,7 @@ package data.Repository;
 import data.domain.admininfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tanjian on 2017/2/24.
@@ -33,4 +34,7 @@ public interface admininfoRepository {
     boolean delete(String id);
 
     public boolean validate(String name,String passwd);
+
+    /*分页查询*/
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage);
 }

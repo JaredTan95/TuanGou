@@ -27,4 +27,7 @@ public interface productCateRepository {
 
     /*逐个删除分类信息*/
     boolean delete(String id);
+
+    /*分页查询*/
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage);
 }

@@ -3,6 +3,7 @@ package data.Repository;
 import data.domain.productinfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Allen on 2017/2/25.
@@ -26,4 +27,7 @@ public interface productinfoRepository {
 
     /*逐个删除分类信息*/
     boolean delete(String id);
+
+    /*分页查询*/
+    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage);
 }
