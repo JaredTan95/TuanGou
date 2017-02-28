@@ -109,24 +109,5 @@ $('#loginBtn').on('click',function () {
     $.AMUI.progress.done();
 });
 
-/*$("#proCate").page({
-    pages:10,
-    first: "首页", //设置false则不显示，默认为false
-    last: "尾页", //设置false则不显示，默认为false
-    prev: '<', //若不显示，设置false即可，默认为上一页
-    next: '>', //若不显示，设置false即可，默认为下一页
-    groups: 3 //连续显示分页数
-});
-$("#proCate").on('jump.page.amui', function() {
-    console.log('点击分页按钮时会触发jump.page.amui事件');
-});*/
 
-var proCatePages=0;
-$("#proCate").page({
-    pages:proCatePages,
-    groups:5,
-    jump:function(context){
-        $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
-    }
-});
 

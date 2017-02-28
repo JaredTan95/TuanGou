@@ -42,19 +42,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
-                    <div class="am-form-group tpl-table-list-select">
-                        <select data-am-selected="{btnSize: 'sm'}">
-                            <option value="option1">所有类别</option>
-                            <option value="option2">IT业界</option>
-                            <option value="option3">数码产品</option>
-                            <option value="option3">笔记本电脑</option>
-                            <option value="option3">平板电脑</option>
-                            <option value="option3">只能手机</option>
-                            <option value="option3">超极本</option>
-                        </select>
-                    </div>
-                </div>
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                         <input type="text" class="am-form-field ">
@@ -71,8 +58,8 @@
                         <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="gradeX">
+                    <tbody id="tbody4Cate">
+              <#--      <tr class="gradeX">
                         <td>日用品</td>
                         <td>
                             <div class="tpl-table-black-operation">
@@ -149,7 +136,7 @@
                                 </a>
                             </div>
                         </td>
-                    </tr>
+                    </tr>-->
                     <!-- more data -->
                     </tbody>
                 </table>
@@ -164,5 +151,43 @@
 <script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.page.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
+<script>
+    $(function () {
+        var proCatePages;
+        var getData;
+        var str="";
+        $.ajax({
+            type: "GET",
+            url: "/producCate/get/5/1",
+            statusCode:{
+                200:function (data) {
+                    proCatePages=Math.ceil(data.total/5);
+                    getData=data.lists;
+                    $("#proCate").page({
+                        pages:proCatePages,
+                        groups:5,
+                        jump:function(context){
+                            $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                            console.log(context.option.curr);
+                        }
+                    });
+                    for(var i=0;i<getData.length;i++){
+                        str="<tr class='even gradeC'><td>"+getData[i].cateTitle+"</td><td> <div class='tpl-table-black-operation'>" +
+                                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"'><i class='am-icon-pencil'></i> 编辑 </a> " +
+                                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"' class='tpl-table-black-operation-del'>" +
+                                "<i class='am-icon-trash'></i> 删除 </a> </div> </td> </tr>";
+                        $('#tbody4Cate').append(str);
+                    }
+                },
+                500:function () {
+                    alert("500");
+                },
+                404:function () {
+                    alert("404");
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>

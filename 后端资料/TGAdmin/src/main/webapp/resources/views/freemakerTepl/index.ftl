@@ -200,17 +200,17 @@
             </li>
 
             <li class="sidebar-nav-link">
-                <a href="!#">
+                <a href="javascript:void(0);">
                     <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 统计分析
                 </a>
             </li>
             <li class="sidebar-nav-link">
-                <a href="!#">
+                <a href="javascript:void(0);">
                     <i class="am-icon-tv sidebar-nav-link-logo"></i> 用户管理
                 </a>
             </li>
             <li class="sidebar-nav-link">
-                <a href="/404">
+                <a href="javascript:void(0);">
                     <i class="am-icon-eraser sidebar-nav-link-logo"></i> 404错误
                 </a>
             </li>

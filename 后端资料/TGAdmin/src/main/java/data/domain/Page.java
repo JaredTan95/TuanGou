@@ -50,7 +50,7 @@ public class Page{
 		setStartIndex();
 		//计算结束行数
 		setLastIndex();
-		System.out.println("lastIndex="+lastIndex);
+		/*System.out.println("lastIndex="+lastIndex);*/
 		//使用mysql时直接使用limits
 		StringBuffer paginationSQL = new StringBuffer();
 		paginationSQL.append(sql);
@@ -119,8 +119,8 @@ public class Page{
 
 	//计算结束时候的索引
 	public void setLastIndex() {
-		System.out.println("totalRows="+totalRows);
-		System.out.println("numPerPage="+numPerPage);
+	/*	System.out.println("totalRows="+totalRows);
+		System.out.println("numPerPage="+numPerPage);*/
 		if( totalRows < numPerPage){
 			this.lastIndex = totalRows;
 		}else if((totalRows % numPerPage == 0) || (totalRows % numPerPage != 0 && currentPage < totalPages)){

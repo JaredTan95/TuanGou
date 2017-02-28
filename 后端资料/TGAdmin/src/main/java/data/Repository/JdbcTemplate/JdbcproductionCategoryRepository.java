@@ -28,6 +28,7 @@ public class JdbcproductionCategoryRepository implements productCateRepository {
     private final static String UPDATE_PRODUCTIONCATEGORY="UPDATE productionCategory set cateTitle=?";
     private final static String FINDONE_PRODUCTIONCATEGORY="SELECT cateId,cateTitle FROM productionCategory WHERE cateId=?";
     private final static String FINDALL_PRODUCTIONCATEGORY="SELECT cateId,cateTitle FROM productionCategory";
+    private final static String COUNT_TOTAL="SELECT COUNT(*) FROM productionCategory";
 
 
     @Override
@@ -67,6 +68,11 @@ public class JdbcproductionCategoryRepository implements productCateRepository {
         }
     }
 
+    /*计算总数*/
+    @Override
+    public int getTotal() {
+        return jdbcTemplate.queryForObject(COUNT_TOTAL,Integer.class);
+    }
 
     /**
      * 查询包含所有字段的分页数据

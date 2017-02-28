@@ -57,7 +57,7 @@ public class JdbcadminRepositoryTest {
 
     @Test
     public void testPagenation(){
-        List<Map<String, Object>> lists=new JdbcorderinfoRepository(jdbcTemplate).getPageListAllCol("",2,5);
+        List<Map<String, Object>> lists=new JdbcorderinfoRepository(jdbcTemplate).getPageListAllCol("",10,5);
         for(Map<String, Object> item:lists){
             System.out.println(item.toString());
         }

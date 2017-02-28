@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import utils.UUIDGenerator;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -74,9 +75,14 @@ public class ProductionCateController {
     * 查询所有商品分类信息
     * */
     @RequestMapping(value = "/get/{pageSize}/{page}",method = GET)
-    public List<ResponseEntity<productionCategory>> get(
-            @PathVariable("pageSize")String pageSize,@PathVariable("page") String page){
-            //TODO:分页实现
-        return null;
+    @ResponseBody
+    public Map<String,Object> get(
+            @PathVariable("pageSize")int pageSize,@PathVariable("page") int page){
+         JdbcproductionCategoryRepository jd= new JdbcproductionCategoryRepository(jdbcTemplate);
+            int totalSize=jd.getTotal();
+            Map<String,Object> maps=new HashMap<>();
+            maps.put("total",totalSize);
+            maps.put("lists",jd.getPageListAllCol("",page,pageSize));
+         return maps;
     }
 }
