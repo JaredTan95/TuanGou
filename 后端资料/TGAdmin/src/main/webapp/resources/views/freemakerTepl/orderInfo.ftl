@@ -76,8 +76,8 @@
                         <th>订单操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="gradeX">
+                    <tbody id="tbody4order">
+              <#--      <tr class="gradeX">
                         <td>9A543D8</td>
                         <td>surface pro4</td>
                         <td>Allen</td>
@@ -185,11 +185,12 @@
                                 </a>
                             </div>
                         </td>
-                    </tr>
+                    </tr>-->
                     <!-- more data -->
                     </tbody>
                 </table>
-
+                <div id="orderInfo"></div>
+                <span id="tips4"></span>
             </div>
         </div>
     </div>
@@ -197,6 +198,26 @@
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
+<script src="/resources/views/freemakerTepl/assets/js/amazeui.page.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
+<script>
+    $(function () {
+        var orderInfoPages;
+        $.getJSON("/order/getTotal",function (data) {
+            orderInfoPages=parseInt(data);
+            $("#orderInfo").page({
+                pages:Math.ceil(orderInfoPages/10),
+                groups:5,
+                jump:function(context){
+                    $("#tips4").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                    $.getJSON("/order/get/10/"+context.option.curr, function(data){
+                        $.TGAdmin.showOrderInfos(data.lists);
+                    });
+                }
+            });
+        });
+
+    });
+</script>
 </body>
 </html>

@@ -31,4 +31,7 @@ public interface orderinfoRepository {
 
     /*分页查询*/
     public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage);
+
+    /*计算总数*/
+    int getTotal();
 }

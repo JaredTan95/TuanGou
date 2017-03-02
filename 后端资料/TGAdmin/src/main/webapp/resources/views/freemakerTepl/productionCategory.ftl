@@ -154,39 +154,20 @@
 <script>
     $(function () {
         var proCatePages;
-        var getData;
-        var str="";
-        $.ajax({
-            type: "GET",
-            url: "/producCate/get/5/1",
-            statusCode:{
-                200:function (data) {
-                    proCatePages=Math.ceil(data.total/5);
-                    getData=data.lists;
-                    $("#proCate").page({
-                        pages:proCatePages,
-                        groups:5,
-                        jump:function(context){
-                            $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
-                            console.log(context.option.curr);
-                        }
+        $.getJSON("/producCate/getTotal",function (data) {
+            proCatePages=parseInt(data);
+            $("#proCate").page({
+                pages:Math.ceil(proCatePages/10),
+                groups:5,
+                jump:function(context){
+                    $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                    $.getJSON("/producCate/get/10/"+context.option.curr, function(data){
+                        $.TGAdmin.showCateLists(data.lists);
                     });
-                    for(var i=0;i<getData.length;i++){
-                        str="<tr class='even gradeC'><td>"+getData[i].cateTitle+"</td><td> <div class='tpl-table-black-operation'>" +
-                                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"'><i class='am-icon-pencil'></i> 编辑 </a> " +
-                                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"' class='tpl-table-black-operation-del'>" +
-                                "<i class='am-icon-trash'></i> 删除 </a> </div> </td> </tr>";
-                        $('#tbody4Cate').append(str);
-                    }
-                },
-                500:function () {
-                    alert("500");
-                },
-                404:function () {
-                    alert("404");
                 }
-            }
+            });
         });
+
     });
 </script>
 </body>

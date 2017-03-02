@@ -220,6 +220,16 @@
     <div class="tpl-content-wrapper">
         <iframe src="/productionCategory" style="width: 100%;height: 78rem;" name="mainFrame" id="mainFrame"></iframe>
     </div>
+    <div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">TGAdmin提示信息</div>
+            <div class="am-modal-bd" id="MyalertBd">
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn">确定</span>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
 <script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>

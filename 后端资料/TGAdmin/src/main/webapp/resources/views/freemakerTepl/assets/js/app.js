@@ -86,7 +86,6 @@ jQuery.TGAdmin={
                 statusCode:{
                     200:function (data) {
                         location.href="/";
-                        /* console.log(data);*/
                     },
                     500:function () {
                         alert("请重新尝试!");
@@ -98,8 +97,41 @@ jQuery.TGAdmin={
             });
         }
     },
-    getCatepory:function () {
-        
+    showCateLists:function (getData) {
+        $.AMUI.progress.start();
+        $('#tbody4Cate').html("");
+        for(var i=0;i<getData.length;i++){
+            var str="<tr class='even gradeC'><td>"+getData[i].cateTitle+"</td><td> <div class='tpl-table-black-operation'>" +
+                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"'><i class='am-icon-pencil'></i> 编辑 </a> " +
+                "<a href='javascript:;' data-cateId='"+getData[i].cateId+"' class='tpl-table-black-operation-del'>" +
+                "<i class='am-icon-trash'></i> 删除 </a> </div> </td> </tr>";
+            $('#tbody4Cate').append(str);
+        }
+        $.AMUI.progress.done();
+    },
+    showOrderInfos:function (getData) {
+        $.AMUI.progress.start();
+        $('#tbody4order').html("");
+        for(var i=0;i<getData.length;i++){
+            var str="";
+            if(i%2==0){
+                str="<tr class='gradeX'><td>"+getData[i].OrderID+"</td><td>未获得产品名称</td><td>未获得用户名："+getData[i].userID+"</td> " +
+                    "<td>"+getData[i].OrderDate.toDateString+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
+                    "<td>"+getData[i].OrderStatus+"</td> <td><div class='tpl-table-black-operation'> " +
+                    "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"'> <i class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"' class='tpl-table-black-operation-del'><i class='am-icon-trash'></i> 删除 </a> " +
+                    "</div></td> </tr>";
+            } else {
+                str="<tr class='even gradeC'><td>"+getData[i].OrderID+"</td><td>未获得产品名称</td><td>未获得用户名："+getData[i].userID+"</td> " +
+                    "<td>"+getData[i].OrderDate.toDateString+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
+                    "<td>"+getData[i].OrderStatus+"</td> <td><div class='tpl-table-black-operation'> " +
+                    "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"'> <i class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"' class='tpl-table-black-operation-del'><i class='am-icon-trash'></i> 删除 </a> " +
+                    "</div></td> </tr>";
+            }
+            $('#tbody4order').append(str);
+        }
+        $.AMUI.progress.done();
     }
 };
 

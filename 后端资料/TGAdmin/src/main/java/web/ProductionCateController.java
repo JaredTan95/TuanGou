@@ -85,4 +85,10 @@ public class ProductionCateController {
             maps.put("lists",jd.getPageListAllCol("",page,pageSize));
          return maps;
     }
+
+    /*查询记录总数*/
+    @RequestMapping(value = "/getTotal",method = GET)
+    public @ResponseBody int getTotalNum(){
+        return new JdbcproductionCategoryRepository(jdbcTemplate).getTotal();
+    }
 }
