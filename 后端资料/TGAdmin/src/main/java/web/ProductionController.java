@@ -10,6 +10,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.Part;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
@@ -73,4 +80,50 @@ public class ProductionController {
     * 参照上面update（）方法;
     * */
 
+
+
+
+    /*查询总记录数*/
+    @RequestMapping(value = "/getTotal",method = GET)
+    public @ResponseBody
+    int getTtoal(){
+        return new JdbcproductinfoRepository(jdbcTemplate).getTotal();
+    }
+
+
+    /*分页查询商品*/
+    /*
+   * 查询所有订单信息
+   * */
+    @RequestMapping(value = "/get/{pageSize}/{page}", method = GET)
+    @ResponseBody
+    public Map<String, Object> get(
+            @PathVariable("pageSize") int pageSize, @PathVariable("page") int page) {
+        JdbcproductinfoRepository jd = new JdbcproductinfoRepository(jdbcTemplate);
+        int totalSize = jd.getTotal();
+        Map<String, Object> maps = new HashMap<>();
+        maps.put("total", totalSize);
+        maps.put("lists", jd.getPageListAllCol("",page,pageSize));
+        return maps;
+    }
+
+
+
+
+
+    //TODO:图片上传
+    /*处理图片上传*/
+    @RequestMapping(value = "/upload",method = POST)
+    public ResponseEntity processUploadFile(@RequestPart(value = "file", required = true) Part file) throws IOException {
+        String path="/resources/UploadImg/";
+        String fileName="dfdsfserrrrrr.jgp";
+        //保存
+        try {
+            file.write(path+fileName);
+            return new ResponseEntity(path+fileName ,HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(path+fileName ,HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

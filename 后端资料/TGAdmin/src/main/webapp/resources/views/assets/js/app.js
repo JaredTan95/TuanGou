@@ -84,7 +84,7 @@ jQuery.TGAdmin={
                 dataType: "json",
                 data:{username:name,password:passwd},
                 statusCode:{
-                    200:function (data) {
+                    200:function () {
                         location.href="/";
                     },
                     500:function () {
@@ -133,6 +133,32 @@ jQuery.TGAdmin={
         }
         $.AMUI.progress.done();
     },
+    showProductInfo:function (getData) {
+        $.AMUI.progress.start();
+        $('#tbody4product').html("");
+        for(var i=0;i<getData.length;i++){
+            var str="";
+            if(i%2==0){
+                str="<tr class='gradeX'><td>"+getData[i].productName+"</td><td>"+getData[i].productionDscp+"</td><td>"+getData[i].startPrice+"</td>" +
+                    "<td>"+getData[i].salePrice+"</td><td>"+getData[i].sellCount+"</td><td><a>预览图</a></td>" +
+                    " <td>"+getData[i].productStatus+"</td> <td> <div class='tpl-table-black-operation'> <a href='javascript:;'> " +
+                    "<i data-proId='"+getData[i].productId+"' class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' class='tpl-table-black-operation-del'> <i data-proId='"+getData[i].productId+"' class='am-icon-trash'></i> 删除 </a> " +
+                    "</div> </td> </tr>";
+            } else {
+                str="<tr class='even gradeC'><td>"+getData[i].productName+"</td><td>"+getData[i].productionDscp+"</td><td>"+getData[i].startPrice+"</td>" +
+                    "<td>"+getData[i].salePrice+"</td><td>"+getData[i].sellCount+"</td>" +
+                    "<td><a>预览图</a></td><td>"+getData[i].productStatus+"</td><td>" +
+                    "<div class='tpl-table-black-operation'><a href='javascript:;'>" +
+                    "<i data-proId='"+getData[i].productId+"' class='am-icon-pencil'></i> 编辑</a>" +
+                    "<a href='javascript:;' class='tpl-table-black-operation-del'><i data-proId='"+getData[i].productId+"' class='am-icon-trash'></i> 删除</a>" +
+                    "</div></td></tr>";
+            }
+            $('#tbody4product').append(str);
+        }
+        $.AMUI.progress.done();
+    }
+    ,
     covertOrderStatus:function (statu) {
         switch(statu){
             case 1:return "新订单";

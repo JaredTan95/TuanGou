@@ -7,20 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
-    <link rel="icon" type="image/png" href="/resources/views/freemakerTepl/assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="/resources/views/freemakerTepl/assets/i/app-icon72x72@2x.png">
-    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
-    <script src="/resources/views/freemakerTepl/assets/js/echarts.min.js"></script>
-    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.min.css"/>
-    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/amazeui.datatables.min.css"/>
-    <link rel="stylesheet" href="/resources/views/freemakerTepl/assets/css/app.css">
-    <script src="/resources/views/freemakerTepl/assets/js/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="/resources/views/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/resources/views/assets/i/app-icon72x72@2x.png">
+    <script src="/resources/views/assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="/resources/views/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/resources/views/assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="/resources/views/assets/css/app.css">
+    <script src="/resources/views/assets/js/jquery.min.js"></script>
 </head>
 <body class="theme-black">
-<div class="row" style="padding-top:80px;">
+<div class="row"  style="padding-top:80px;">
     <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
         <div class="widget am-cf">
-            <h1 class="am-form-icon" style="margin-top: -30px;margin-left: 20px;">商品分类</h1>
+            <h1 class="am-form-icon" style="margin-top: -30px;margin-left: 20px;">商家信息</h1>
             <div class="widget-body  widget-body-lg am-fr">
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
                     <div class="am-form-group">
@@ -42,6 +41,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
+                    <div class="am-form-group tpl-table-list-select">
+                        <select data-am-selected="{btnSize: 'sm'}">
+                            <option value="option1">所有类别</option>
+                            <option value="option2">IT业界</option>
+                            <option value="option3">数码产品</option>
+                            <option value="option3">笔记本电脑</option>
+                            <option value="option3">平板电脑</option>
+                            <option value="option3">只能手机</option>
+                            <option value="option3">超极本</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
                     <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
                         <input type="text" class="am-form-field ">
@@ -54,13 +66,25 @@
                 <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
                     <thead>
                     <tr>
-                        <th>分类</th>
+                        <th>商家编号</th>
+                        <th>商家名称</th>
+                        <th>商家描述</th>
+                        <th>商家等级</th>
+                        <th>注册日期</th>
+                        <th>电话号码</th>
+                        <th>商家状态</th>
                         <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody id="tbody4Cate">
-              <#--      <tr class="gradeX">
-                        <td>日用品</td>
+                    <tbody>
+                    <tr class="gradeX">
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td>一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -73,7 +97,13 @@
                         </td>
                     </tr>
                     <tr class="even gradeC">
-                        <td>日用品</td>
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td class="am-text-truncate">生蛋一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -86,7 +116,13 @@
                         </td>
                     </tr>
                     <tr class="gradeX">
-                        <td>日用品</td>
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td>一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -99,7 +135,13 @@
                         </td>
                     </tr>
                     <tr class="even gradeC">
-                        <td>日用品</td>
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td>一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -112,7 +154,13 @@
                         </td>
                     </tr>
                     <tr class="gradeX">
-                        <td>日用品</td>
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td>一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -125,7 +173,13 @@
                         </td>
                     </tr>
                     <tr class="even gradeC">
-                        <td>日用品</td>
+                        <td>100001</td>
+                        <td>联想旗舰店</td>
+                        <td>一个买电脑的商家</td>
+                        <td>10级</td>
+                        <td>2017年2月26日 20:28:47</td>
+                        <td>18811112222</td>
+                        <td>审核中</td>
                         <td>
                             <div class="tpl-table-black-operation">
                                 <a href="javascript:;">
@@ -136,39 +190,18 @@
                                 </a>
                             </div>
                         </td>
-                    </tr>-->
+                    </tr>
                     <!-- more data -->
                     </tbody>
                 </table>
-                <div id="proCate"></div>
-                <span id="tips3"></span>
             </div>
         </div>
     </div>
 </div>
-<script src="/resources/views/freemakerTepl/assets/js/amazeui.min.js"></script>
-<script src="/resources/views/freemakerTepl/assets/js/amazeui.datatables.min.js"></script>
-<script src="/resources/views/freemakerTepl/assets/js/dataTables.responsive.min.js"></script>
-<script src="/resources/views/freemakerTepl/assets/js/amazeui.page.js"></script>
-<script src="/resources/views/freemakerTepl/assets/js/app.js"></script>
-<script>
-    $(function () {
-        var proCatePages;
-        $.getJSON("/producCate/getTotal",function (data) {
-            proCatePages=parseInt(data);
-            $("#proCate").page({
-                pages:Math.ceil(proCatePages/10),
-                groups:5,
-                jump:function(context){
-                    $("#tips3").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
-                    $.getJSON("/producCate/get/10/"+context.option.curr, function(data){
-                        $.TGAdmin.showCateLists(data.lists);
-                    });
-                }
-            });
-        });
-
-    });
-</script>
+<script src="/resources/views/assets/js/amazeui.min.js"></script>
+<script src="/resources/views/assets/js/amazeui.datatables.min.js"></script>
+<script src="/resources/views/assets/js/amazeui.page.js"></script>
+<script src="/resources/views/assets/js/dataTables.responsive.min.js"></script>
+<script src="/resources/views/assets/js/app.js"></script>
 </body>
 </html>

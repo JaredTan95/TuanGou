@@ -34,6 +34,7 @@ public class JdbcproductinfoRepository implements productinfoRepository {
                                                     "startprice,productionDscp, salePrice, adCount, publishDate, sellCount," +
                                                     "productPic, productStatus FROM productinfo";
     private static final String DELETE_PRODUCTINFO="DELETE FROM productinfo WHERE productId=?";
+    private static final String COUNT_TOTAL="SELECT COUNT(*) FROM productinfo";
 
     @Override
     public boolean save(productinfo proinfo) {
@@ -61,6 +62,11 @@ public class JdbcproductinfoRepository implements productinfoRepository {
     @Override
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_PRODUCTINFO,id)>0;
+    }
+
+    @Override
+    public int getTotal() {
+        return jdbcTemplate.queryForObject(COUNT_TOTAL,Integer.class);
     }
 
     @Override
