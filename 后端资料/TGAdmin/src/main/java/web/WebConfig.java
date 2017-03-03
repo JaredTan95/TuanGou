@@ -5,10 +5,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
@@ -25,36 +27,36 @@ import java.beans.PropertyVetoException;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan({"web","web.service"})
+@ComponentScan({"web"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Bean
-    public FreeMarkerConfigurer freeMarkerConfigurer() {
-        FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
-        freeMarkerConfigurer.setTemplateLoaderPath("/resources/views/freemakerTepl");
-        freeMarkerConfigurer.setDefaultEncoding("UTF-8");
-        return freeMarkerConfigurer;
-    }
+//    @Bean
+//    public FreeMarkerConfigurer freeMarkerConfigurer() {
+//        FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
+//        freeMarkerConfigurer.setTemplateLoaderPath("/resources/views/freemakerTepl");
+//        freeMarkerConfigurer.setDefaultEncoding("UTF-8");
+//        return freeMarkerConfigurer;
+//    }
+
+//    @Bean
+//    public FreeMarkerViewResolver freeMarkerViewResolver() {
+//        FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
+//        freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
+//        freeMarkerViewResolver.setContentType("text/html; charset=utf-8");
+//        freeMarkerViewResolver.setSuffix(".ftl");
+//        freeMarkerViewResolver.setCache(true);
+//        freeMarkerViewResolver.setOrder(0);
+//        return freeMarkerViewResolver;
+//    }
 
     @Bean
-    public FreeMarkerViewResolver freeMarkerViewResolver() {
-        FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
-        freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
-        freeMarkerViewResolver.setContentType("text/html; charset=utf-8");
-        freeMarkerViewResolver.setSuffix(".ftl");
-        freeMarkerViewResolver.setCache(true);
-        freeMarkerViewResolver.setOrder(0);
-        return freeMarkerViewResolver;
-    }
-
-    /*@Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("");
+        resolver.setPrefix("/resources/views/freemakerTepl/");
         resolver.setSuffix(".html");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
-    }*/
+    }
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -85,7 +87,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //TODO:如果要接收生成订单操作，需对生成订单接口开启免过滤
-        registry.addInterceptor(ssoInteceptor()).excludePathPatterns("/login");/*除了"/login路由不会被拦截器拦截，其余均会被拦截"*/
+        registry.addInterceptor(ssoInteceptor()).excludePathPatterns("/login").excludePathPatterns("/order/add");/*除了"/login路由不会被拦截器拦截，其余均会被拦截"*/
     }
 
     //自定义拦截器
