@@ -11,7 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import utils.UUIDGenerator;
+import utils.OutOrderNum;
+import web.service.OrderService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * Created by tanjian on 2017/2/26.
+ * 订单操作控制器
  */
 @ComponentScan
 @Controller
@@ -29,6 +31,9 @@ public class OrderController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    private OrderService orderService;
 
     /*
     * 查询一个订单
@@ -45,11 +50,12 @@ public class OrderController {
 
     /*
     * 添加订单
+    * @param pro_cateId,sellerId,cateId,ProductID,userID,OrderDate,OrderNum,OrderStatus,OrderVolume
     * */
     @RequestMapping(value = "/add", method = POST)
     public ResponseEntity<orderinfo> add(orderinfo order) {
         HttpStatus status = null;
-        order.setOrderID(UUIDGenerator.getUUID());
+        order.setOrderID(new OutOrderNum().OrderNum());
         JdbcorderinfoRepository jdbcorderinfoRepository = new JdbcorderinfoRepository(jdbcTemplate);
         try {
             status = jdbcorderinfoRepository.save(order) ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR;
@@ -93,7 +99,7 @@ public class OrderController {
         int totalSize = jd.getTotal();
         Map<String, Object> maps = new HashMap<>();
         maps.put("total", totalSize);
-        maps.put("lists", jd.getPageListAllCol("", page, pageSize));
+        maps.put("lists", orderService.getOrderListByPage(page,pageSize));
         return maps;
     }
 }

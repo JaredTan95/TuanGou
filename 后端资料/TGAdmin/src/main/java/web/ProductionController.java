@@ -15,12 +15,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * Created by tanjian on 2017/2/26.
+ * 商品信息操作控制器
  */
 @ComponentScan
 @Controller
 @RequestMapping(value = "/production")
 public class ProductionController {
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -58,7 +58,7 @@ public class ProductionController {
     public ResponseEntity<productinfo> add(productinfo product){
         HttpStatus status=null;
         try {
-            status=new JdbcproductinfoRepository(jdbcTemplate).save(product)?HttpStatus.OK:HttpStatus.INTERNAL_SERVER_ERROR;
+            status=new JdbcproductinfoRepository(jdbcTemplate).save(product)?HttpStatus.OK:HttpStatus.EXPECTATION_FAILED;
             return new ResponseEntity<>(product, status);
         }catch (Exception e){
             status=HttpStatus.INTERNAL_SERVER_ERROR;

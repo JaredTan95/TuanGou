@@ -115,23 +115,36 @@ jQuery.TGAdmin={
         for(var i=0;i<getData.length;i++){
             var str="";
             if(i%2==0){
-                str="<tr class='gradeX'><td>"+getData[i].OrderID+"</td><td>未获得产品名称</td><td>未获得用户名："+getData[i].userID+"</td> " +
-                    "<td>"+getData[i].OrderDate.toDateString+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
-                    "<td>"+getData[i].OrderStatus+"</td> <td><div class='tpl-table-black-operation'> " +
+                str="<tr class='gradeX'><td>"+getData[i].OrderID+"</td><td data-proId='"+getData[i].productId+"'>"+getData[i].productName+"</td><td>"+getData[i].userAccount+"</td> " +
+                    "<td>"+$.TGAdmin.convertDate(getData[i].OrderDate)+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
+                    "<td>"+$.TGAdmin.covertOrderStatus(getData[i].OrderStatus)+"</td> <td><div class='tpl-table-black-operation'> " +
                     "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"'> <i class='am-icon-pencil'></i> 编辑 </a> " +
                     "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"' class='tpl-table-black-operation-del'><i class='am-icon-trash'></i> 删除 </a> " +
                     "</div></td> </tr>";
             } else {
-                str="<tr class='even gradeC'><td>"+getData[i].OrderID+"</td><td>未获得产品名称</td><td>未获得用户名："+getData[i].userID+"</td> " +
-                    "<td>"+getData[i].OrderDate.toDateString+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
-                    "<td>"+getData[i].OrderStatus+"</td> <td><div class='tpl-table-black-operation'> " +
+                str="<tr class='even gradeC'><td>"+getData[i].OrderID+"</td><td>"+getData[i].productName+"</td><td>"+getData[i].userAccount+"</td> " +
+                    "<td>"+$.TGAdmin.convertDate(getData[i].OrderDate)+"</td> <td><a>"+getData[i].OrderNum+"</a></td> " +
+                    "<td>"+$.TGAdmin.covertOrderStatus(getData[i].OrderStatus)+"</td> <td><div class='tpl-table-black-operation'> " +
                     "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"'> <i class='am-icon-pencil'></i> 编辑 </a> " +
                     "<a href='javascript:;' data-orderId='"+getData[i].OrderID+"' class='tpl-table-black-operation-del'><i class='am-icon-trash'></i> 删除 </a> " +
-                    "</div></td> </tr>";
+                    "</div></td></tr>";
             }
             $('#tbody4order').append(str);
         }
         $.AMUI.progress.done();
+    },
+    covertOrderStatus:function (statu) {
+        switch(statu){
+            case 1:return "新订单";
+            case 2:return "已取消";
+            case 3:return "已付款";
+            case 4:return "待发货";
+            case 5:return "已发货";
+            case 6:return "交易成功";
+        }
+    },
+    convertDate:function (time) {
+        return new Date(parseInt(time)).toLocaleDateString();
     }
 };
 

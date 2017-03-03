@@ -30,7 +30,7 @@ public interface orderinfoRepository {
     boolean delete(String id);
 
     /*分页查询*/
-    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage);
+    public List<Map<String, Object>> getPageListAllCol(String sql,String where, int currentPage, int numPerPage);
 
     /*计算总数*/
     int getTotal();
