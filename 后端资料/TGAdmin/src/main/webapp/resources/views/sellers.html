@@ -43,14 +43,8 @@
                 </div>
                 <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
                     <div class="am-form-group tpl-table-list-select">
-                        <select data-am-selected="{btnSize: 'sm'}">
+                        <select id="procateSelect" data-am-selected="{btnSize: 'sm'}">
                             <option value="option1">所有类别</option>
-                            <option value="option2">IT业界</option>
-                            <option value="option3">数码产品</option>
-                            <option value="option3">笔记本电脑</option>
-                            <option value="option3">平板电脑</option>
-                            <option value="option3">只能手机</option>
-                            <option value="option3">超极本</option>
                         </select>
                     </div>
                 </div>
@@ -76,124 +70,12 @@
                         <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="gradeX">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td>一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even gradeC">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td class="am-text-truncate">生蛋一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="gradeX">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td>一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even gradeC">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td>一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="gradeX">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td>一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="even gradeC">
-                        <td>100001</td>
-                        <td>联想旗舰店</td>
-                        <td>一个买电脑的商家</td>
-                        <td>10级</td>
-                        <td>2017年2月26日 20:28:47</td>
-                        <td>18811112222</td>
-                        <td>审核中</td>
-                        <td>
-                            <div class="tpl-table-black-operation">
-                                <a href="javascript:;">
-                                    <i class="am-icon-pencil"></i> 编辑
-                                </a>
-                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                    <i class="am-icon-trash"></i> 删除
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                    <tbody id="tbody4selles">
                     <!-- more data -->
                     </tbody>
                 </table>
+                <div id="sellerList"></div>
+                <span id="tips6"></span>
             </div>
         </div>
     </div>
@@ -202,6 +84,28 @@
 <script src="/resources/views/assets/js/amazeui.datatables.min.js"></script>
 <script src="/resources/views/assets/js/amazeui.page.js"></script>
 <script src="/resources/views/assets/js/dataTables.responsive.min.js"></script>
+<script src="/resources/views/assets/js/amazeui.page.js"></script>
 <script src="/resources/views/assets/js/app.js"></script>
+<script>
+    $(function () {
+        var orderInfoPages;
+        $.getJSON("/seller/getTotal",function (data) {
+            orderInfoPages=parseInt(data);
+            $("#sellerList").page({
+                pages:Math.ceil(orderInfoPages/10),
+                groups:5,
+                jump:function(context){
+                    $("#tips6").html("共"+context.option.pages+"页，当前第"+context.option.curr+"页");
+                    $.getJSON("/seller/get/10/"+context.option.curr, function(data){
+                        $.TGAdmin.showSellerLists(data.lists);
+                    });
+                }
+            });
+        });
+        $.getJSON("/producCate/get/all", function (data) {
+            $.TGAdmin.showCateSelect(data);
+        });
+    });
+</script>
 </body>
 </html>

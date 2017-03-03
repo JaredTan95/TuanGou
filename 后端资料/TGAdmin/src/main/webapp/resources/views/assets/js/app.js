@@ -28,9 +28,6 @@ $(function() {
     //     }
 });
 
-
-
-
 $('.tpl-skiner-content-bar').find('span').on('click', function() {
     $('body').attr('class', $(this).attr('data-color'))
     saveSelectColor.Color = $(this).attr('data-color');
@@ -39,6 +36,10 @@ $('.tpl-skiner-content-bar').find('span').on('click', function() {
 
 });
 
+$('.sidebar-nav .sidebar-nav-link a').on('click', function () {
+    $('.sidebar-nav .sidebar-nav-link a').removeClass('active');
+    $(this).addClass('active').siblings();
+});
 
 
 
@@ -157,8 +158,45 @@ jQuery.TGAdmin={
             $('#tbody4product').append(str);
         }
         $.AMUI.progress.done();
-    }
-    ,
+    },
+    showCateSelect:function (data) {
+        $.AMUI.progress.start();
+        for(var i=0;i<data.length;i++){
+            var str="<option value='"+data[i].cateId+"'>"+data[i].cateTitle+"</option>";
+            $('#procateSelect').append(str);
+        }
+        $.AMUI.progress.done();
+    },
+    showSellerLists:function (getData) {
+        $.AMUI.progress.start();
+        $('#tbody4selles').html("");
+        for(var i=0;i<getData.length;i++){
+            var str="";
+            if(i%2==0){
+                str="<tr class='gradeX'> <td>"+getData[i].sellerId+"</td> <td>"+getData[i].sellerAccount+"</td><td>"+$.TGAdmin.cutString(getData[i].sellerDscp)+"</td>" +
+                    "<td>"+getData[i].sellerLevel+"</td><td>"+getData[i].sellerRegDate+"</td> <td>"+getData[i].sellerPhoneNum+"</td> " +
+                    "<td>"+getData[i].sellerStatus+"</td><td><div class='tpl-table-black-operation'> <a href='javascript:;'> <i data-sellerId='"+getData[i].sellerId+"' class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' class='tpl-table-black-operation-del'> <i data-sellerId='"+getData[i].sellerId+"' class='am-icon-trash'></i> 删除 </a>" +
+                    "</div></td></tr>";
+            } else {
+                str="<tr class='even gradeX'><td>"+getData[i].sellerId+"</td> <td>"+getData[i].sellerAccount+"</td><td>"+$.TGAdmin.cutString(getData[i].sellerDscp)+"</td>" +
+                    "<td>"+getData[i].sellerLevel+"</td><td>"+getData[i].sellerRegDate+"</td> <td>"+getData[i].sellerPhoneNum+"</td> " +
+                    "<td>"+getData[i].sellerStatus+"</td><td><div class='tpl-table-black-operation'> <a href='javascript:;'> <i data-sellerId='"+getData[i].sellerId+"' class='am-icon-pencil'></i> 编辑 </a> " +
+                    "<a href='javascript:;' class='tpl-table-black-operation-del'> <i data-sellerId='"+getData[i].sellerId+"' class='am-icon-trash'></i> 删除 </a>" +
+                    "</div></td></tr>";
+            }
+            $('#tbody4selles').append(str);
+        }
+        $.AMUI.progress.done();
+    },
+    cutString:function (str) {
+        var MAX=30;
+        if(str.length<=MAX){
+            return str;
+        }else {
+            return str.substring(0,MAX)+"......";
+        }
+    },
     covertOrderStatus:function (statu) {
         switch(statu){
             case 1:return "新订单";

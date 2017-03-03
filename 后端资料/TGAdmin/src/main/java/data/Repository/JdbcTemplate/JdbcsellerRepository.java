@@ -34,6 +34,7 @@ public class JdbcsellerRepository implements sellerRepository {
     private static final String FINDALL_SELLER="SELECT sellerId,sellerTitle,sellerAccount,sellerPwd" +
             ",sellerDscp,sellerLevel,sellerRegDate,sellerPhoneNum,sellerStatus";
     private static final String DELETE_SELLER="DELETE FROM sellers WHERE sellerId=?";
+    private static final String ACCOUNT_TOTAL="SELECT COUNT(*) FROM sellers";
 
 
     @Override
@@ -68,6 +69,11 @@ public class JdbcsellerRepository implements sellerRepository {
     @Override
     public boolean delete(String id) {
         return jdbcTemplate.update(DELETE_SELLER,id)>0;
+    }
+
+    @Override
+    public int getTotal() {
+        return jdbcTemplate.queryForObject(ACCOUNT_TOTAL,Integer.class);
     }
 
     @Override

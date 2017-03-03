@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import utils.UUIDGenerator;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -37,6 +38,12 @@ public class ProductionCateController {
         return new JdbcproductionCategoryRepository(jdbcTemplate).findOne(id);
     }
 
+    /*查询所有分类信息*/
+    @RequestMapping(value = "/get/all",method = GET)
+    public @ResponseBody
+    List<productionCategory> get(){
+        return new JdbcproductionCategoryRepository(jdbcTemplate).findAll();
+    }
 
     /*
     * 新增一个商品分类
