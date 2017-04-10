@@ -18,10 +18,6 @@ import java.security.NoSuchAlgorithmException;
 @Service("UserService")
 public class UserService {
 
-    public UserService() {
-    /*    System.out.println("调用UserService");*/
-    }
-
     @Autowired
     private JdbcTemplate jdbcTemplate;
 

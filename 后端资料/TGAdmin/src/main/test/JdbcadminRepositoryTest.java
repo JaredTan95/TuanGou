@@ -1,7 +1,5 @@
 import data.Repository.JdbcTemplate.JdbcadmininfoRepository;
-import data.Repository.JdbcTemplate.JdbcorderinfoRepository;
 import data.domain.admininfo;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -13,8 +11,6 @@ import utils.sha256;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by tanjian on 2017/2/24.
@@ -54,12 +50,4 @@ public class JdbcadminRepositoryTest {
         System.out.println(jdbcTemplate.queryForObject("SELECT count(*) from productionCategory",Integer.class));
     }
 
-
-    @Test
-    public void testPagenation(){
-        List<Map<String, Object>> lists=new JdbcorderinfoRepository(jdbcTemplate).getPageListAllCol("",10,5);
-        for(Map<String, Object> item:lists){
-            System.out.println(item.toString());
-        }
-    }
 }

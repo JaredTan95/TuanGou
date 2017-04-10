@@ -5,21 +5,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-import web.Interceptor.sessionInterceptor;
 import web.Interceptor.SsoInteceptor;
+import web.Interceptor.sessionInterceptor;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 
 /*
  * Created by tanjian on 16/9/14.
@@ -52,10 +53,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/resources/views/freemakerTepl/");
+        resolver.setPrefix("/resources/views/");
         resolver.setSuffix(".html");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
+    }
+
+    @Bean
+    public CharacterEncodingFilter encodingFilter(){
+        return new CharacterEncodingFilter("UTF-8",true);
     }
 
     @Override
@@ -86,7 +92,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     //注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //TODO:如果要接收生成订单操作，需对生成订单接口开启免过滤
         registry.addInterceptor(ssoInteceptor()).excludePathPatterns("/login").excludePathPatterns("/order/add");/*除了"/login路由不会被拦截器拦截，其余均会被拦截"*/
     }
 
@@ -101,6 +106,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public sessionInterceptor sessionInterceptor(){
         return new sessionInterceptor();
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver();
+        multipartResolver.setDefaultEncoding("UTF-8");
+        multipartResolver.setMaxUploadSize(6291456);
+        multipartResolver.setMaxInMemorySize(6291456);
+        return multipartResolver;
     }
 
     /*Json 化*/

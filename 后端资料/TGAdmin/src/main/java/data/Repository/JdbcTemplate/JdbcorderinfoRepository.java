@@ -65,9 +65,9 @@ public class JdbcorderinfoRepository implements orderinfoRepository {
     }
 
     @Override
-    public List<Map<String, Object>> getPageListAllCol(String where, int currentPage, int numPerPage) {
-        String sql = "select * from " + tableName + where;
-        Page page = new Page(sql, currentPage, numPerPage, jdbcTemplate);
+    public List<Map<String, Object>> getPageListAllCol(String sql,String where, int currentPage, int numPerPage) {
+        String query = sql  + where;
+        Page page = new Page(query, currentPage, numPerPage, jdbcTemplate);
         return page.getResultList();
     }
 
